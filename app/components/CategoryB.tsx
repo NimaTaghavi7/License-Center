@@ -4,50 +4,47 @@ import Image from "next/image";
 import Link from "next/link";
 
 const products = [
+    {
+    name: "سرویس آموزشی",
+    image: "/image-category5.webp",
+    link: "/services/service9",
+  },
   {
     name: "کارت اعتباری ارزی",
-    image: "/image-service12.webp",
+    image: "/image-category6.webp",
     link: "/services/service12",
   },
   {
     name: "سرویس ویدیویی",
-    image: "/image-service11.webp",
+    image: "/image-category7.webp",
     link: "/services/service11",
   },
   {
     name: "سرویس صوتی",
-    image: "/image-service10.webp",
+    image: "/image-category8.webp",
     link: "/services/service10",
   },
-  {
-    name: "سرویس آموزشی",
-    image: "/image-service9.webp",
-    link: "/services/service9",
-  },
+
 ];
 
 export default function Services() {
   return (
-    <section className="flex flex-col items-center justify-center gap-6 w-full px-3 sm:px-4 lg:px-6 py-0">
-      <div className="flex flex-col items-center justify-center mb-6">
-        <div className="mb-4 h-10 w-0.25 rounded-full bg-black"></div>
+    <section className="flex w-full flex-col items-center justify-center gap-6 px-3 py-0 sm:px-4 lg:px-6">
+      <div className="mb-6 flex flex-col items-center justify-center"></div>
 
-        <h2 className="font-sans text-2xl font-bold">خدمات لایسنس‌مارکت</h2>
-      </div>
-
-      <div className="grid grid-cols-2 w-full max-w-6xl gap-3">
+      <div className="grid w-full max-w-6xl grid-cols-2 gap-3 sm:gap-4">
         {products.map((product) => (
           <Link
             key={product.name}
             href={product.link}
-            className="group flex flex-col items-center rounded-xl border border-gray-200 bg-white p-3 sm:p-4 transition hover:-translate-y-1 hover:shadow-md"
+            className="group relative aspect-[2/1] overflow-hidden rounded-xl bg-white transition duration-300 hover:-translate-y-1"
           >
             <Image
               src={product.image}
               alt={product.name}
-              width={100}
-              height={100}
-              className="h-20 w-20 sm:h-22 sm:w-22 lg:h-24 lg:w-24 object-contain transition group-hover:scale-105"
+              fill
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 600px"
+              className="object-cover transition duration-300 group-hover:scale-105"
             />
           </Link>
         ))}
@@ -55,4 +52,3 @@ export default function Services() {
     </section>
   );
 }
-

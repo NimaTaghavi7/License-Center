@@ -114,7 +114,7 @@ export default function Offers() {
   return (
     <section
       dir="rtl"
-      className="mx-auto w-full max-w-6xl mb-8 sm:mb-10 lg:mb-12 px-3 sm:px-4 lg:px-6"
+      className="mx-auto w-full  max-w-6xl mb-8 sm:mb-10 lg:mb-12 px-3 sm:px-4 lg:px-6"
     >
       <div className="flex flex-col sm:flex-row bg-[#d22c4e] p-3 sm:p-4 gap-3 sm:gap-4 lg:gap-5 rounded-2xl overflow-hidden">
 
