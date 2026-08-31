@@ -397,80 +397,34 @@ const categories = [
     ],
   },
 ];
+
 export default function CategoryServices() {
-  /*
-   * موقعیت فعلی هر دسته
-   *
-   * برای هر دسته یک position جدا داریم.
-   * بنابراین حرکت دسته اول هیچ تأثیری
-   * روی دسته دوم، سوم یا چهارم ندارد.
-   */
   const [current, setCurrent] = useState(
     categories.map((category) => category.products.length)
   );
 
-  /*
-   * تعداد کارت‌های قابل نمایش
-   *
-   * موبایل: 1
-   * تبلت کوچک: 2
-   * تبلت: 3
-   * لپ‌تاپ و دسکتاپ: 4
-   */
   const [visibleCount, setVisibleCount] = useState(4);
 
-  /*
-   * وضعیت انیمیشن برای هر دسته جداگانه
-   *
-   * مثال:
-   * [true, true, false, true]
-   *
-   * یعنی فقط دسته سوم موقتاً بدون انیمیشن است.
-   */
   const [transitionEnabled, setTransitionEnabled] = useState(
     categories.map(() => true)
   );
 
-  /*
-   * وضعیت Drag برای هر دسته
-   *
-   * هر دسته Drag مستقل خودش را دارد.
-   */
   const [dragging, setDragging] = useState(
     categories.map(() => false)
   );
 
-  /*
-   * مقدار حرکت موقت Drag برای هر دسته
-   *
-   * اگر دسته اول را بکشیم:
-   *
-   * [50, 0, 0, 0]
-   *
-   * بنابراین فقط دسته اول حرکت می‌کند.
-   */
   const [dragOffset, setDragOffset] = useState(
     categories.map(() => 0)
   );
 
-  /*
-   * محل شروع Drag برای هر دسته
-   */
   const dragStartX = useRef(
     categories.map(() => 0)
   );
 
-  /*
-   * مقدار Drag برای جلوگیری از کلیک اشتباهی روی محصول
-   */
   const dragDistance = useRef(
     categories.map(() => 0)
   );
 
-  /*
-   * تعداد کارت‌های قابل نمایش را
-   * با اندازه صفحه هماهنگ می‌کنیم.
-   */
   useEffect(() => {
     const updateVisibleCount = () => {
       const width = window.innerWidth;
@@ -501,10 +455,6 @@ export default function CategoryServices() {
     };
   }, []);
 
-  /*
-   * وقتی تعداد کارت‌های قابل نمایش تغییر کند،
-   * تمام اسلایدرها را دوباره روی نسخه وسط قرار می‌دهیم.
-   */
   useEffect(() => {
     setTransitionEnabled(
       categories.map(() => false)
@@ -533,11 +483,6 @@ export default function CategoryServices() {
     return () => clearTimeout(timer);
   }, [visibleCount]);
 
-  /*
-   * رفتن به محصول بعدی
-   *
-   * فقط categoryIndex مربوط به همان دسته تغییر می‌کند.
-   */
   const next = (categoryIndex: number) => {
     if (dragging[categoryIndex]) return;
 
@@ -558,11 +503,6 @@ export default function CategoryServices() {
     });
   };
 
-  /*
-   * رفتن به محصول قبلی
-   *
-   * فقط همان دسته حرکت می‌کند.
-   */
   const previous = (categoryIndex: number) => {
     if (dragging[categoryIndex]) return;
 
@@ -583,13 +523,6 @@ export default function CategoryServices() {
     });
   };
 
-  /*
-   * پایان انیمیشن
-   *
-   * چون محصولات سه بار تکرار شده‌اند،
-   * وقتی به کپی اول یا سوم برسیم،
-   * بدون اینکه کاربر متوجه شود به کپی وسط برمی‌گردیم.
-   */
   const handleTransitionEnd = (
     categoryIndex: number
   ) => {
@@ -598,18 +531,6 @@ export default function CategoryServices() {
 
     const position = current[categoryIndex];
 
-    /*
-     * رسیدن به کپی سوم
-     *
-     * مثال:
-     *
-     * 1 2 3 ... 10
-     * 1 2 3 ... 10
-     * 1 2 3 ... 10
-     *
-     * اگر position از 20 عبور کند،
-     * به position - 10 برمی‌گردیم.
-     */
     if (position >= length * 2) {
       setTransitionEnabled((prev) => {
         const nextState = [...prev];
@@ -643,9 +564,6 @@ export default function CategoryServices() {
       return;
     }
 
-    /*
-     * رسیدن به کپی اول
-     */
     if (position < length) {
       setTransitionEnabled((prev) => {
         const nextState = [...prev];
@@ -678,19 +596,10 @@ export default function CategoryServices() {
     }
   };
 
-  /*
-   * شروع Drag
-   *
-   * categoryIndex مشخص می‌کند
-   * کدام یک از چهار دسته در حال Drag شدن است.
-   */
   const handlePointerDown = (
     event: React.PointerEvent<HTMLDivElement>,
     categoryIndex: number
   ) => {
-    /*
-     * فقط کلیک اصلی موس
-     */
     if (
       event.pointerType === "mouse" &&
       event.button !== 0
@@ -698,9 +607,6 @@ export default function CategoryServices() {
       return;
     }
 
-    /*
-     * فقط همین دسته وارد حالت Drag می‌شود.
-     */
     setDragging((prev) => {
       const nextState = [...prev];
 
@@ -709,9 +615,6 @@ export default function CategoryServices() {
       return nextState;
     });
 
-    /*
-     * انیمیشن را فقط برای همین دسته خاموش می‌کنیم.
-     */
     setTransitionEnabled((prev) => {
       const nextState = [...prev];
 
@@ -720,17 +623,11 @@ export default function CategoryServices() {
       return nextState;
     });
 
-    /*
-     * محل شروع Drag
-     */
     dragStartX.current[categoryIndex] =
       event.clientX;
 
     dragDistance.current[categoryIndex] = 0;
 
-    /*
-     * Offset فقط برای همین دسته صفر می‌شود.
-     */
     setDragOffset((prev) => {
       const nextState = [...prev];
 
@@ -739,22 +636,11 @@ export default function CategoryServices() {
       return nextState;
     });
 
-    /*
-     * Pointer Capture
-     *
-     * باعث می‌شود حتی اگر موس از محدوده خارج شود،
-     * Drag همچنان درست کار کند.
-     */
     event.currentTarget.setPointerCapture(
       event.pointerId
     );
   };
 
-  /*
-   * حرکت Drag
-   *
-   * این قسمت فقط Track همان دسته را حرکت می‌دهد.
-   */
   const handlePointerMove = (
     event: React.PointerEvent<HTMLDivElement>,
     categoryIndex: number
@@ -777,9 +663,6 @@ export default function CategoryServices() {
     });
   };
 
-  /*
-   * پایان Drag
-   */
   const handlePointerUp = (
     event: React.PointerEvent<HTMLDivElement>,
     categoryIndex: number
@@ -792,9 +675,6 @@ export default function CategoryServices() {
 
     const distance = Math.abs(difference);
 
-    /*
-     * Drag را فقط برای همین دسته تمام می‌کنیم.
-     */
     setDragging((prev) => {
       const nextState = [...prev];
 
@@ -803,9 +683,6 @@ export default function CategoryServices() {
       return nextState;
     });
 
-    /*
-     * Offset را فقط برای همین دسته صفر می‌کنیم.
-     */
     setDragOffset((prev) => {
       const nextState = [...prev];
 
@@ -814,9 +691,6 @@ export default function CategoryServices() {
       return nextState;
     });
 
-    /*
-     * آزاد کردن Pointer Capture
-     */
     if (
       event.currentTarget.hasPointerCapture(
         event.pointerId
@@ -827,10 +701,6 @@ export default function CategoryServices() {
       );
     }
 
-    /*
-     * اگر کمتر از 50px کشیده شده باشد،
-     * Drag محسوب نمی‌شود.
-     */
     if (distance < 50) {
       setTransitionEnabled((prev) => {
         const nextState = [...prev];
@@ -843,11 +713,6 @@ export default function CategoryServices() {
       return;
     }
 
-    /*
-     * Drag به سمت راست
-     *
-     * محصول قبلی
-     */
     if (difference > 0) {
       setTransitionEnabled((prev) => {
         const nextState = [...prev];
@@ -868,11 +733,6 @@ export default function CategoryServices() {
       return;
     }
 
-    /*
-     * Drag به سمت چپ
-     *
-     * محصول بعدی
-     */
     setTransitionEnabled((prev) => {
       const nextState = [...prev];
 
@@ -890,10 +750,6 @@ export default function CategoryServices() {
     });
   };
 
-  /*
-   * اگر Pointer به هر دلیل لغو شود،
-   * Drag فقط برای همان دسته لغو می‌شود.
-   */
   const handlePointerCancel = (
     event: React.PointerEvent<HTMLDivElement>,
     categoryIndex: number
@@ -933,10 +789,6 @@ export default function CategoryServices() {
     }
   };
 
-  /*
-   * اگر کاربر محصول را Drag کرده باشد،
-   * نباید بعد از رها کردن موس وارد لینک شود.
-   */
   const handleProductClick = (
     event: React.MouseEvent<HTMLAnchorElement>,
     categoryIndex: number
@@ -950,36 +802,13 @@ export default function CategoryServices() {
     }
   };
 
-  /*
-   * فاصله بین کارت‌ها
-   */
   const gap = 12;
 
-  /*
-   * عرض هر کارت
-   *
-   * 1 کارت:
-   * 100%
-   *
-   * 2 کارت:
-   * (100% - 12px) / 2
-   *
-   * 3 کارت:
-   * (100% - 24px) / 3
-   *
-   * 4 کارت:
-   * (100% - 36px) / 4
-   */
   const cardWidth = `calc(
     (100% - ${(visibleCount - 1) * gap}px)
     / ${visibleCount}
   )`;
 
-  /*
-   * مقدار حرکت هر مرحله
-   *
-   * هر بار فقط یک کارت جابه‌جا می‌شود.
-   */
   const step = `calc(
     (100% - ${(visibleCount - 1) * gap}px)
     / ${visibleCount}
@@ -989,16 +818,13 @@ export default function CategoryServices() {
   return (
     <section
       dir="rtl"
-      className="mx-auto flex w-full max-w-7xl flex-col gap-12 px-3 sm:gap-14 sm:px-4 md:gap-16 md:px-6 lg:px-8"
+      className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-3 sm:gap-14 sm:px-4 md:gap-16 md:px-6 lg:px-8"
     >
       {categories.map(
         (category, categoryIndex) => {
           const position =
             current[categoryIndex];
 
-          /*
-           * سه نسخه از محصولات برای لوپ بی‌نهایت
-           */
           const loopProducts = [
             ...category.products,
             ...category.products,
@@ -1010,7 +836,6 @@ export default function CategoryServices() {
               key={category.title}
               className="flex w-full flex-col gap-5"
             >
-              {/* عنوان دسته */}
               <div className="flex items-center justify-between gap-4">
                 <h2 className="font-sans text-lg font-bold sm:text-xl md:text-2xl">
                   {category.title}
@@ -1024,16 +849,7 @@ export default function CategoryServices() {
                 </Link>
               </div>
 
-              {/* ردیف اسلایدر */}
               <div className="flex w-full items-center gap-2 sm:gap-3">
-
-                {/*
-
-                  دکمه سمت راست
-
-                  در RTL این دکمه:
-                  محصول بعدی را نمایش می‌دهد.
-                */}
                 <button
                   type="button"
                   onClick={() =>
@@ -1045,14 +861,12 @@ export default function CategoryServices() {
                   ❮
                 </button>
 
-                {/* محدوده قابل مشاهده */}
                 <div
                   className="min-w-0 flex-1 overflow-hidden"
                   style={{
                     touchAction: "pan-y",
                   }}
                 >
-                  {/* Track */}
                   <div
                     dir="ltr"
                     onPointerDown={(event) =>
@@ -1093,22 +907,6 @@ export default function CategoryServices() {
                         : ""
                     }`}
                     style={{
-                      /*
-                       * حرکت اصلی اسلایدر
-                       *
-                       * position:
-                       * مشخص می‌کند کدام محصول
-                       * در موقعیت فعلی قرار دارد.
-                       *
-                       * dragOffset:
-                       * حرکت لحظه‌ای موس/انگشت را اضافه می‌کند.
-                       *
-                       * مهم:
-                       * dragOffset مربوط به همین categoryIndex است.
-                       *
-                       * بنابراین دیگر ۴ لیست
-                       * همزمان حرکت نمی‌کنند.
-                       */
                       transform: `translate3d(
                         calc(
                           -${position} * ${step}
@@ -1117,24 +915,12 @@ export default function CategoryServices() {
                         0,
                         0
                       )`,
-
-                      /*
-                       * شکل موس هنگام Drag
-                       */
                       cursor: dragging[
                         categoryIndex
                       ]
                         ? "grabbing"
                         : "grab",
-
-                      /*
-                       * جلوگیری از انتخاب متن
-                       */
                       userSelect: "none",
-
-                      /*
-                       * بهینه‌سازی حرکت
-                       */
                       willChange: "transform",
                     }}
                   >
@@ -1152,22 +938,15 @@ export default function CategoryServices() {
                             )
                           }
                           style={{
-                            /*
-                             * عرض کارت
-                             */
                             flex: `0 0 ${cardWidth}`,
                           }}
                           className="group relative flex min-h-[280px] flex-col items-center rounded-xl border border-gray-200 bg-white p-4 transition duration-300 hover:-translate-y-1 hover:shadow-md"
                         >
-                          {/* درصد تخفیف */}
                           <span className="absolute right-3 top-3 z-10 rounded-full bg-[#d22c4e] px-2 py-1 text-xs text-white">
                             {product.discount}
                           </span>
 
-                          {/* محدوده تصویر */}
                           <div className="relative h-40 w-full sm:h-44">
-
-                            {/* تصویر اصلی */}
                             <Image
                               src={
                                 product.image
@@ -1181,7 +960,6 @@ export default function CategoryServices() {
                               className="pointer-events-none object-contain transition-opacity duration-300 group-hover:opacity-0"
                             />
 
-                            {/* تصویر هنگام Hover */}
                             <Image
                               src={
                                 product.hoverImage
@@ -1196,12 +974,10 @@ export default function CategoryServices() {
                             />
                           </div>
 
-                          {/* نام محصول */}
                           <h3 className="mt-3 line-clamp-2 text-center text-sm font-bold leading-6">
                             {product.name}
                           </h3>
 
-                          {/* قیمت */}
                           <div className="mt-auto flex flex-col items-center">
                             <p className="mt-3 text-sm text-gray-400 line-through">
                               {
@@ -1221,13 +997,6 @@ export default function CategoryServices() {
                   </div>
                 </div>
 
-                {/*
-
-                  دکمه سمت چپ
-
-                  در RTL:
-                  محصول قبلی را نشان می‌دهد.
-                */}
                 <button
                   type="button"
                   onClick={() =>
@@ -1240,16 +1009,6 @@ export default function CategoryServices() {
                 </button>
               </div>
 
-              {/*
-
-                بنر بعد از دسته دوم
-
-                categoryIndex:
-                0 = کاربردی
-                1 = فیلم و سریال
-                2 = موسیقی
-                3 = آموزشی
-              */}
               {categoryIndex === 1 && (
                 <Link
                   href="/category/banner-1"
@@ -1266,7 +1025,6 @@ export default function CategoryServices() {
                 </Link>
               )}
 
-              {/* بنر بعد از دسته چهارم */}
               {categoryIndex === 3 && (
                 <Link
                   href="/category/banner-2"
@@ -1289,3 +1047,4 @@ export default function CategoryServices() {
     </section>
   );
 }
+

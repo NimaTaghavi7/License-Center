@@ -1,14 +1,14 @@
-import About from "./About";
-import CategoryA from "./CategoryA";
-import CategoryB from "./CategoryB";
-import Header from "./Header";
-import Herosection from "./Herosection";
-import Navbar from "./Navbar";
-import Offers from "./Offers";
-import Product from "./Product";
-import Services from "./Services";
-import SpecialServices from "./SpecialServices";
-import SupportButton from "./SupportButton";
+import About from "./components/About";
+import CategoryA from "./components/CategoryA";
+import CategoryB from "./components/CategoryB";
+import Header from "./components/Header";
+import Herosection from "./components/Herosection";
+import Navbar from "./components/Navbar";
+import Offers from "./components/Offers";
+import Product from "./components/Product";
+import Services from "./components/Services";
+import SpecialServices from "./components/SpecialServices";
+import SupportButton from "./components/SupportButton";
 
 
 export default function Home() {

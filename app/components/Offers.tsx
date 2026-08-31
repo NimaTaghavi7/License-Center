@@ -114,89 +114,95 @@ export default function Offers() {
   return (
     <section
       dir="rtl"
-      className="flex bg-[#d22c4e] mx-90 mb-12 p-4 gap-5 rounded-2xl overflow-hidden"
+      className="mx-auto w-full max-w-6xl mb-8 sm:mb-10 lg:mb-12 px-3 sm:px-4 lg:px-6"
     >
-      <div className="flex flex-col justify-evenly items-center p-10 my-4 gap-6 font-sans text-center text-white min-w-[180px]">
-        <h2 className="text-3xl font-bold">
-          پیشنهاد <br />
-          شگفت‌ <br />
-          انگیز
-        </h2>
+      <div className="flex flex-col sm:flex-row bg-[#d22c4e] p-3 sm:p-4 gap-3 sm:gap-4 lg:gap-5 rounded-2xl overflow-hidden">
 
-        <img
-          className="w-7 h-7"
-          src="percent.webp"
-          alt=""
-        />
+        <div className="flex flex-row sm:flex-col justify-between sm:justify-evenly items-center p-3 sm:p-5 lg:p-10 my-0 sm:my-2 lg:my-4 gap-4 sm:gap-5 lg:gap-6 font-sans text-center text-white min-w-0 sm:min-w-[180px]">
 
-        <div>
-          <button
-            onClick={prev}
-            className="px-3 text-xl"
-          >
-            ❮
-          </button>
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold">
+            پیشنهاد <br />
+            شگفت‌ <br />
+            انگیز
+          </h2>
 
-          <button
-            onClick={next}
-            className="px-3 text-xl"
-          >
-            ❯
-          </button>
-        </div>
-      </div>
+          <img
+            className="w-7 h-7"
+            src="percent.webp"
+            alt=""
+          />
 
-      <div className="overflow-hidden flex-1">
-        <div
-          className="flex gap-3 transition-transform duration-500"
-          style={{
-            transform: `translateX(${start * 274}px)`,
-          }}
-        >
-          {products.map((product) => (
-            <Link
-              key={product.name}
-              href={product.link}
-              className="bg-white font-sans rounded-xl p-4 min-w-[250px] relative block"
+          <div>
+            <button
+              onClick={prev}
+              className="px-2 sm:px-3 text-xl"
             >
-              <span className="bg-[#d22c4e] text-white px-1 py-1 absolute m-2.5 rounded-full text-sm z-10">
-                {product.discount}
-              </span>
+              ❮
+            </button>
 
-              {/* تصویر اصلی + تصویر Hover */}
-              <div className="relative w-full h-50">
-                <img
-                  src={product.image}
-                  className="w-full h-full object-center object-contain transition-opacity duration-300 hover:opacity-0"
-                  alt={product.name}
-                />
+            <button
+              onClick={next}
+              className="px-2 sm:px-3 text-xl"
+            >
+              ❯
+            </button>
+          </div>
 
-                {product.hoverimage && (
+        </div>
+
+        <div className="overflow-hidden flex-1 min-w-0">
+          <div
+            className="flex gap-3 transition-transform duration-500"
+            style={{
+              transform: `translateX(${start * 274}px)`,
+            }}
+          >
+            {products.map((product) => (
+              <Link
+                key={product.name}
+                href={product.link}
+                className="bg-white font-sans rounded-xl p-3 sm:p-4 min-w-[220px] sm:min-w-[250px] relative block"
+              >
+                <span className="bg-[#d22c4e] text-white px-1 py-1 absolute m-2.5 rounded-full text-sm z-10">
+                  {product.discount}
+                </span>
+
+                <div className="relative w-full h-36 sm:h-44 lg:h-50">
                   <img
-                    src={product.hoverimage}
-                    className="absolute inset-0 w-full h-full object-center object-contain opacity-0 transition-opacity duration-300 hover:opacity-100"
+                    src={product.image}
+                    className="w-full h-full object-center object-contain transition-opacity duration-300 hover:opacity-0"
                     alt={product.name}
                   />
-                )}
-              </div>
 
-              <h3 className="mt-3 font-bold">
-                {product.name}
-              </h3>
+                  {product.hoverimage && (
+                    <img
+                      src={product.hoverimage}
+                      className="absolute inset-0 w-full h-full object-center object-contain opacity-0 transition-opacity duration-300 hover:opacity-100"
+                      alt={product.name}
+                    />
+                  )}
+                </div>
 
-              <div className="mt-3">
-                <p className="text-gray-400 line-through text-sm mt-2">
-                  {product.oldPrice} تومان
-                </p>
+                <h3 className="mt-3 font-bold">
+                  {product.name}
+                </h3>
 
-                <p className="font-bold text-lg">
-                  {product.price} تومان
-                </p>
-              </div>
-            </Link>
-          ))}
+                <div className="mt-3">
+                  <p className="text-gray-400 line-through text-sm mt-2">
+                    {product.oldPrice} تومان
+                  </p>
+
+                  <p className="font-bold text-lg">
+                    {product.price} تومان
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
+
       </div>
     </section>
   );
 }
+
