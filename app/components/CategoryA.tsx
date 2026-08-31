@@ -4,26 +4,27 @@ import Image from "next/image";
 import Link from "next/link";
 
 const products = [
-  {
-    name: "کارت اعتباری ارزی",
-    image: "/image-service12.webp",
-    link: "/services/service12",
-  },
-  {
+   {
     name: "سرویس ویدیویی",
-    image: "/image-service11.webp",
+    image:  "/image-category2.webp",
     link: "/services/service11",
   },
   {
-    name: "سرویس صوتی",
-    image: "/image-service10.webp",
-    link: "/services/service10",
+    name: "کارت اعتباری ارزی",
+    image: "/image-category1.webp",
+    link: "/services/service12",
   },
-  {
+   {
     name: "سرویس آموزشی",
-    image: "/image-service9.webp",
+    image: "/image-category4.webp",
     link: "/services/service9",
   },
+  {
+    name: "سرویس صوتی",
+    image: "/image-category3.webp",
+    link: "/services/service10",
+  },
+
 ];
 
 export default function Services() {

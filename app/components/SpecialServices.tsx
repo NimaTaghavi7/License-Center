@@ -400,30 +400,22 @@ const categories = [
 
 export default function CategoryServices() {
   const [current, setCurrent] = useState(
-    categories.map((category) => category.products.length)
+    categories.map((category) => category.products.length),
   );
 
   const [visibleCount, setVisibleCount] = useState(4);
 
   const [transitionEnabled, setTransitionEnabled] = useState(
-    categories.map(() => true)
+    categories.map(() => true),
   );
 
-  const [dragging, setDragging] = useState(
-    categories.map(() => false)
-  );
+  const [dragging, setDragging] = useState(categories.map(() => false));
 
-  const [dragOffset, setDragOffset] = useState(
-    categories.map(() => 0)
-  );
+  const [dragOffset, setDragOffset] = useState(categories.map(() => 0));
 
-  const dragStartX = useRef(
-    categories.map(() => 0)
-  );
+  const dragStartX = useRef(categories.map(() => 0));
 
-  const dragDistance = useRef(
-    categories.map(() => 0)
-  );
+  const dragDistance = useRef(categories.map(() => 0));
 
   useEffect(() => {
     const updateVisibleCount = () => {
@@ -442,42 +434,24 @@ export default function CategoryServices() {
 
     updateVisibleCount();
 
-    window.addEventListener(
-      "resize",
-      updateVisibleCount
-    );
+    window.addEventListener("resize", updateVisibleCount);
 
     return () => {
-      window.removeEventListener(
-        "resize",
-        updateVisibleCount
-      );
+      window.removeEventListener("resize", updateVisibleCount);
     };
   }, []);
 
   useEffect(() => {
-    setTransitionEnabled(
-      categories.map(() => false)
-    );
+    setTransitionEnabled(categories.map(() => false));
 
-    setCurrent(
-      categories.map(
-        (category) => category.products.length
-      )
-    );
+    setCurrent(categories.map((category) => category.products.length));
 
-    setDragging(
-      categories.map(() => false)
-    );
+    setDragging(categories.map(() => false));
 
-    setDragOffset(
-      categories.map(() => 0)
-    );
+    setDragOffset(categories.map(() => 0));
 
     const timer = setTimeout(() => {
-      setTransitionEnabled(
-        categories.map(() => true)
-      );
+      setTransitionEnabled(categories.map(() => true));
     }, 50);
 
     return () => clearTimeout(timer);
@@ -523,11 +497,8 @@ export default function CategoryServices() {
     });
   };
 
-  const handleTransitionEnd = (
-    categoryIndex: number
-  ) => {
-    const length =
-      categories[categoryIndex].products.length;
+  const handleTransitionEnd = (categoryIndex: number) => {
+    const length = categories[categoryIndex].products.length;
 
     const position = current[categoryIndex];
 
@@ -543,8 +514,7 @@ export default function CategoryServices() {
       setCurrent((prev) => {
         const nextState = [...prev];
 
-        nextState[categoryIndex] =
-          position - length;
+        nextState[categoryIndex] = position - length;
 
         return nextState;
       });
@@ -576,8 +546,7 @@ export default function CategoryServices() {
       setCurrent((prev) => {
         const nextState = [...prev];
 
-        nextState[categoryIndex] =
-          position + length;
+        nextState[categoryIndex] = position + length;
 
         return nextState;
       });
@@ -598,12 +567,9 @@ export default function CategoryServices() {
 
   const handlePointerDown = (
     event: React.PointerEvent<HTMLDivElement>,
-    categoryIndex: number
+    categoryIndex: number,
   ) => {
-    if (
-      event.pointerType === "mouse" &&
-      event.button !== 0
-    ) {
+    if (event.pointerType === "mouse" && event.button !== 0) {
       return;
     }
 
@@ -623,8 +589,7 @@ export default function CategoryServices() {
       return nextState;
     });
 
-    dragStartX.current[categoryIndex] =
-      event.clientX;
+    dragStartX.current[categoryIndex] = event.clientX;
 
     dragDistance.current[categoryIndex] = 0;
 
@@ -636,23 +601,18 @@ export default function CategoryServices() {
       return nextState;
     });
 
-    event.currentTarget.setPointerCapture(
-      event.pointerId
-    );
+    event.currentTarget.setPointerCapture(event.pointerId);
   };
 
   const handlePointerMove = (
     event: React.PointerEvent<HTMLDivElement>,
-    categoryIndex: number
+    categoryIndex: number,
   ) => {
     if (!dragging[categoryIndex]) return;
 
-    const difference =
-      event.clientX -
-      dragStartX.current[categoryIndex];
+    const difference = event.clientX - dragStartX.current[categoryIndex];
 
-    dragDistance.current[categoryIndex] =
-      Math.abs(difference);
+    dragDistance.current[categoryIndex] = Math.abs(difference);
 
     setDragOffset((prev) => {
       const nextState = [...prev];
@@ -665,13 +625,11 @@ export default function CategoryServices() {
 
   const handlePointerUp = (
     event: React.PointerEvent<HTMLDivElement>,
-    categoryIndex: number
+    categoryIndex: number,
   ) => {
     if (!dragging[categoryIndex]) return;
 
-    const difference =
-      event.clientX -
-      dragStartX.current[categoryIndex];
+    const difference = event.clientX - dragStartX.current[categoryIndex];
 
     const distance = Math.abs(difference);
 
@@ -691,14 +649,8 @@ export default function CategoryServices() {
       return nextState;
     });
 
-    if (
-      event.currentTarget.hasPointerCapture(
-        event.pointerId
-      )
-    ) {
-      event.currentTarget.releasePointerCapture(
-        event.pointerId
-      );
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
     }
 
     if (distance < 50) {
@@ -752,7 +704,7 @@ export default function CategoryServices() {
 
   const handlePointerCancel = (
     event: React.PointerEvent<HTMLDivElement>,
-    categoryIndex: number
+    categoryIndex: number,
   ) => {
     setDragging((prev) => {
       const nextState = [...prev];
@@ -778,24 +730,16 @@ export default function CategoryServices() {
       return nextState;
     });
 
-    if (
-      event.currentTarget.hasPointerCapture(
-        event.pointerId
-      )
-    ) {
-      event.currentTarget.releasePointerCapture(
-        event.pointerId
-      );
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
     }
   };
 
   const handleProductClick = (
     event: React.MouseEvent<HTMLAnchorElement>,
-    categoryIndex: number
+    categoryIndex: number,
   ) => {
-    if (
-      dragDistance.current[categoryIndex] > 10
-    ) {
+    if (dragDistance.current[categoryIndex] > 10) {
       event.preventDefault();
 
       dragDistance.current[categoryIndex] = 0;
@@ -804,15 +748,15 @@ export default function CategoryServices() {
 
   const gap = 12;
 
-  const cardWidth = `calc(
-    (100% - ${(visibleCount - 1) * gap}px)
-    / ${visibleCount}
+  const cardWidth = `calc( 
+    (100% - ${(visibleCount - 1) * gap}px) 
+    / ${visibleCount} 
   )`;
 
-  const step = `calc(
-    (100% - ${(visibleCount - 1) * gap}px)
-    / ${visibleCount}
-    + ${gap}px
+  const step = `calc( 
+    (100% - ${(visibleCount - 1) * gap}px) 
+    / ${visibleCount} 
+    + ${gap}px 
   )`;
 
   return (
@@ -820,230 +764,178 @@ export default function CategoryServices() {
       dir="rtl"
       className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-3 sm:gap-14 sm:px-4 md:gap-16 md:px-6 lg:px-8"
     >
-      {categories.map(
-        (category, categoryIndex) => {
-          const position =
-            current[categoryIndex];
+      {categories.map((category, categoryIndex) => {
+        const position = current[categoryIndex];
 
-          const loopProducts = [
-            ...category.products,
-            ...category.products,
-            ...category.products,
-          ];
+        const loopProducts = [
+          ...category.products,
+          ...category.products,
+          ...category.products,
+        ];
 
-          return (
-            <div
-              key={category.title}
-              className="flex w-full flex-col gap-5"
-            >
-              <div className="flex items-center justify-between gap-4">
-                <h2 className="font-sans text-lg font-bold sm:text-xl md:text-2xl">
-                  {category.title}
-                </h2>
+        return (
+          <div key={category.title} className="flex w-full flex-col gap-5">
+            <div className="flex items-center justify-between gap-4">
+              <h2 className="font-sans text-lg font-bold sm:text-xl md:text-2xl">
+                {category.title}
+              </h2>
 
-                <Link
-                  href={category.link}
-                  className="shrink-0 text-sm font-bold text-[#d22c4e] transition-opacity duration-200 hover:opacity-70"
-                >
-                  مشاهده همه
-                </Link>
-              </div>
+              <Link
+                href={category.link}
+                className="shrink-0 text-sm font-bold text-[#d22c4e] transition-opacity duration-200 hover:opacity-70"
+              >
+                مشاهده همه
+              </Link>
+            </div>
 
-              <div className="flex w-full items-center gap-2 sm:gap-3">
-                <button
-                  type="button"
-                  onClick={() =>
-                    next(categoryIndex)
-                  }
-                  aria-label="محصول بعدی"
-                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#d22c4e] text-white transition-all duration-200 hover:scale-105 hover:opacity-80 active:scale-95 sm:h-10 sm:w-10 md:h-11 md:w-11"
-                >
-                  ❮
-                </button>
+            <div className="flex w-full items-center gap-2 sm:gap-3">
+              <button
+                type="button"
+                onClick={() => next(categoryIndex)}
+                aria-label="محصول بعدی"
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#d22c4e] text-white transition-all duration-200 hover:scale-105 hover:opacity-80 active:scale-95 sm:h-10 sm:w-10 md:h-11 md:w-11"
+              >
+                ❮
+              </button>
 
+              <div
+                className="min-w-0 flex-1 overflow-hidden"
+                style={{
+                  touchAction: "pan-y",
+                }}
+              >
                 <div
-                  className="min-w-0 flex-1 overflow-hidden"
+                  dir="ltr"
+                  onPointerDown={(event) =>
+                    handlePointerDown(event, categoryIndex)
+                  }
+                  onPointerMove={(event) =>
+                    handlePointerMove(event, categoryIndex)
+                  }
+                  onPointerUp={(event) => handlePointerUp(event, categoryIndex)}
+                  onPointerCancel={(event) =>
+                    handlePointerCancel(event, categoryIndex)
+                  }
+                  onTransitionEnd={() => handleTransitionEnd(categoryIndex)}
+                  className={`flex gap-3 ${
+                    transitionEnabled[categoryIndex] && !dragging[categoryIndex]
+                      ? "transition-transform duration-500 ease-out"
+                      : ""
+                  }`}
                   style={{
-                    touchAction: "pan-y",
+                    transform: `translate3d( 
+                        calc( 
+                          -${position} * ${step} 
+                          + ${dragOffset[categoryIndex]}px 
+                        ), 
+                        0, 
+                        0 
+                      )`,
+                    cursor: dragging[categoryIndex] ? "grabbing" : "grab",
+                    userSelect: "none",
+                    willChange: "transform",
                   }}
                 >
-                  <div
-                    dir="ltr"
-                    onPointerDown={(event) =>
-                      handlePointerDown(
-                        event,
-                        categoryIndex
-                      )
-                    }
-                    onPointerMove={(event) =>
-                      handlePointerMove(
-                        event,
-                        categoryIndex
-                      )
-                    }
-                    onPointerUp={(event) =>
-                      handlePointerUp(
-                        event,
-                        categoryIndex
-                      )
-                    }
-                    onPointerCancel={(event) =>
-                      handlePointerCancel(
-                        event,
-                        categoryIndex
-                      )
-                    }
-                    onTransitionEnd={() =>
-                      handleTransitionEnd(
-                        categoryIndex
-                      )
-                    }
-                    className={`flex gap-3 ${
-                      transitionEnabled[
-                        categoryIndex
-                      ] &&
-                      !dragging[categoryIndex]
-                        ? "transition-transform duration-500 ease-out"
-                        : ""
-                    }`}
-                    style={{
-                      transform: `translate3d(
-                        calc(
-                          -${position} * ${step}
-                          + ${dragOffset[categoryIndex]}px
-                        ),
-                        0,
-                        0
-                      )`,
-                      cursor: dragging[
-                        categoryIndex
-                      ]
-                        ? "grabbing"
-                        : "grab",
-                      userSelect: "none",
-                      willChange: "transform",
-                    }}
-                  >
-                    {loopProducts.map(
-                      (product, index) => (
-                        <Link
-                          key={`${product.name}-${index}`}
-                          href={product.link}
-                          dir="rtl"
+                  {loopProducts.map((product, index) => (
+                    <Link
+                      key={`${product.name}-${index}`}
+                      href={product.link}
+                      dir="rtl"
+                      draggable={false}
+                      onClick={(event) =>
+                        handleProductClick(event, categoryIndex)
+                      }
+                      style={{
+                        flex: `0 0 ${cardWidth}`,
+                      }}
+                      className="group relative flex min-h-[280px] flex-col items-center rounded-xl border border-gray-200 bg-white p-4 transition duration-300 hover:-translate-y-1 hover:shadow-md"
+                    >
+                      <span className="absolute right-3 top-3 z-10 rounded-full bg-[#d22c4e] px-2 py-1 text-xs text-white">
+                        {product.discount}
+                      </span>
+
+                      <div className="relative h-40 w-full sm:h-44">
+                        <Image
+                          src={product.image}
+                          alt={product.name}
+                          fill
                           draggable={false}
-                          onClick={(event) =>
-                            handleProductClick(
-                              event,
-                              categoryIndex
-                            )
-                          }
-                          style={{
-                            flex: `0 0 ${cardWidth}`,
-                          }}
-                          className="group relative flex min-h-[280px] flex-col items-center rounded-xl border border-gray-200 bg-white p-4 transition duration-300 hover:-translate-y-1 hover:shadow-md"
-                        >
-                          <span className="absolute right-3 top-3 z-10 rounded-full bg-[#d22c4e] px-2 py-1 text-xs text-white">
-                            {product.discount}
-                          </span>
+                          sizes="(max-width: 639px) 90vw, (max-width: 767px) 45vw, (max-width: 1023px) 30vw, 23vw"
+                          className="pointer-events-none object-contain transition-opacity duration-300 group-hover:opacity-0"
+                        />
 
-                          <div className="relative h-40 w-full sm:h-44">
-                            <Image
-                              src={
-                                product.image
-                              }
-                              alt={
-                                product.name
-                              }
-                              fill
-                              draggable={false}
-                              sizes="(max-width: 639px) 90vw, (max-width: 767px) 45vw, (max-width: 1023px) 30vw, 23vw"
-                              className="pointer-events-none object-contain transition-opacity duration-300 group-hover:opacity-0"
-                            />
+                        <Image
+                          src={product.hoverImage}
+                          alt={product.name}
+                          fill
+                          draggable={false}
+                          sizes="(max-width: 639px) 90vw, (max-width: 767px) 45vw, (max-width: 1023px) 30vw, 23vw"
+                          className="pointer-events-none object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                        />
+                      </div>
 
-                            <Image
-                              src={
-                                product.hoverImage
-                              }
-                              alt={
-                                product.name
-                              }
-                              fill
-                              draggable={false}
-                              sizes="(max-width: 639px) 90vw, (max-width: 767px) 45vw, (max-width: 1023px) 30vw, 23vw"
-                              className="pointer-events-none object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                            />
-                          </div>
+                      <h3 className="mt-3 line-clamp-2 text-center text-sm font-bold leading-6">
+                        {product.name}
+                      </h3>
 
-                          <h3 className="mt-3 line-clamp-2 text-center text-sm font-bold leading-6">
-                            {product.name}
-                          </h3>
+                      <div className="mt-auto flex flex-col items-center">
+                        <p className="mt-3 text-sm text-gray-400 line-through">
+                          {product.oldPrice} تومان
+                        </p>
 
-                          <div className="mt-auto flex flex-col items-center">
-                            <p className="mt-3 text-sm text-gray-400 line-through">
-                              {
-                                product.oldPrice
-                              }{" "}
-                              تومان
-                            </p>
-
-                            <p className="mt-1 text-lg font-bold">
-                              {product.price}{" "}
-                              تومان
-                            </p>
-                          </div>
-                        </Link>
-                      )
-                    )}
-                  </div>
+                        <p className="mt-1 text-lg font-bold">
+                          {product.price} تومان
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
                 </div>
-
-                <button
-                  type="button"
-                  onClick={() =>
-                    previous(categoryIndex)
-                  }
-                  aria-label="محصول قبلی"
-                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#d22c4e] text-white transition-all duration-200 hover:scale-105 hover:opacity-80 active:scale-95 sm:h-10 sm:w-10 md:h-11 md:w-11"
-                >
-                  ❯
-                </button>
               </div>
 
-              {categoryIndex === 1 && (
-                <Link
-                  href="/category/banner-1"
-                  className="group mt-2 block w-full overflow-hidden rounded-2xl"
-                >
-                  <Image
-                    src="/banner-1.webp"
-                    alt="بنر خدمات"
-                    width={1200}
-                    height={300}
-                    sizes="(max-width: 768px) 100vw, 1200px"
-                    className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                  />
-                </Link>
-              )}
-
-              {categoryIndex === 3 && (
-                <Link
-                  href="/category/banner-2"
-                  className="group mt-2 block w-full overflow-hidden rounded-2xl"
-                >
-                  <Image
-                    src="/banner-2.webp"
-                    alt="بنر آموزش"
-                    width={1200}
-                    height={300}
-                    sizes="(max-width: 768px) 100vw, 1200px"
-                    className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                  />
-                </Link>
-              )}
+              <button
+                type="button"
+                onClick={() => previous(categoryIndex)}
+                aria-label="محصول قبلی"
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#d22c4e] text-white transition-all duration-200 hover:scale-105 hover:opacity-80 active:scale-95 sm:h-10 sm:w-10 md:h-11 md:w-11"
+              >
+                ❯
+              </button>
             </div>
-          );
-        }
-      )}
+
+            {categoryIndex === 1 && (
+              <Link
+                href="/category/banner-1"
+                className="group mt-2 block w-full overflow-hidden rounded-2xl"
+              >
+                <Image
+                  src="/banner-1.webp"
+                  alt="بنر خدمات"
+                  width={1200}
+                  height={300}
+                  sizes="(max-width: 768px) 100vw, 1200px"
+                  className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+              </Link>
+            )}
+
+            {categoryIndex === 3 && (
+              <Link
+                href="/category/banner-2"
+                className="group mt-2 block w-full overflow-hidden rounded-2xl"
+              >
+                <Image
+                  src="/banner-2.webp"
+                  alt="بنر آموزش"
+                  width={1200}
+                  height={300}
+                  sizes="(max-width: 768px) 100vw, 1200px"
+                  className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+              </Link>
+            )}
+          </div>
+        );
+      })}
     </section>
   );
 }

@@ -32,7 +32,7 @@ export default function HeroSlider() {
   };
 
   return (
-    <div className="mx-auto w-full max-w-[1156px] px-4 sm:px-6 lg:px-8 mt-8 sm:mt-10 lg:mt-15 mb-8 sm:mb-10 lg:mb-12">
+    <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 mt-8 sm:mt-10 lg:mt-15 mb-8 sm:mb-10 lg:mb-12">
       <Link href={slides[current].link}>
         <img
           src={slides[current].image}
@@ -43,17 +43,18 @@ export default function HeroSlider() {
 
       <button
         onClick={prevSlide}
-        className="absolute left-2 sm:left-6 lg:left-8 top-1/2 -translate-y-1/2 text-white px-2 sm:px-3 lg:px-4 cursor-pointer "
+        className="absolute left-2 sm:left-6 lg:left-8 top-1/2 -translate-y-1/2 text-black px-2 sm:px-3 lg:px-4 cursor-pointer "
       >
         ❯
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute right-2 sm:right-6 lg:right-8 top-1/2 -translate-y-1/2 text-white px-2 sm:px-3 lg:px-4 cursor-pointer"
+        className="absolute right-2 sm:right-6 lg:right-8 top-1/2 -translate-y-1/2 text-black px-2 sm:px-3 lg:px-4 cursor-pointer"
       >
         ❮
       </button>
     </div>
   );
 }
+
