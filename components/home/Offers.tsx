@@ -6,8 +6,8 @@ import Link from "next/link";
 const products = [
   {
     name: "خرید اکانت گرامرلی Grammarly با ایمیل شما (با ۹۱% تخفیف)",
-    image: "offer1.webp",
-    hoverimage: "offer1h.webp",
+    image: "/offer1.webp",
+    hoverimage: "/offer1h.webp",
     oldPrice: "۱٫۱۹۹٫۰۰۰",
     price: "۱۹۹٫۰۰۰",
     discount: " ۹۱%",
@@ -15,8 +15,8 @@ const products = [
   },
   {
     name: "خرید دوره آموزشی از یودمی Udemy با اکانت شما با (با ۹۱% تخفیف)",
-    image: "offer2.webp",
-    hoverimage: "offer2h.webp",
+    image: "/offer2.webp",
+    hoverimage: "/offer2h.webp",
     oldPrice: "۶٫۵۹۹٫۰۰۰",
     price: "۴۹۹٫۰۰۰",
     discount: "17%",
@@ -24,8 +24,8 @@ const products = [
   },
   {
     name: "YouTube Premium",
-    image: "/products/youtube.jpg",
-    hoverimage: "/products/youtube-hover.jpg",
+    image: "/offer3.webp",
+    hoverimage: "/offer3h.webp",
     oldPrice: "200,000",
     price: "160,000",
     discount: "20%",
@@ -33,8 +33,8 @@ const products = [
   },
   {
     name: "ChatGPT Plus",
-    image: "/products/chatgpt.jpg",
-    hoverimage: "/products/chatgpt-hover.jpg",
+    image: "/offer4.webp",
+    hoverimage: "/offer4h.webp",
     oldPrice: "500,000",
     price: "400,000",
     discount: "20%",

@@ -902,7 +902,7 @@ export default function CategoryServices() {
               </button>
             </div>
 
-            {categoryIndex === 1 && (
+            {categoryIndex === 0 && (
               <Link
                 href="/category/banner-1"
                 className="group mt-2 block w-full overflow-hidden rounded-2xl"
@@ -918,7 +918,7 @@ export default function CategoryServices() {
               </Link>
             )}
 
-            {categoryIndex === 3 && (
+            {categoryIndex === 2 && (
               <Link
                 href="/category/banner-2"
                 className="group mt-2 block w-full overflow-hidden rounded-2xl"
@@ -939,4 +939,5 @@ export default function CategoryServices() {
     </section>
   );
 }
+
 
