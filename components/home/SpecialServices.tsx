@@ -776,7 +776,7 @@ export default function CategoryServices() {
         return (
           <div key={category.title} className="flex w-full flex-col gap-5">
             <div className="flex items-center justify-between gap-4">
-              <h2 className="font-sans text-lg font-bold sm:text-xl md:text-2xl">
+              <h2 className=" text-lg font-bold sm:text-xl md:text-2xl">
                 {category.title}
               </h2>
 

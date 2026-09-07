@@ -50,7 +50,7 @@ export default function Products() {
       <div className="mt-8 sm:mt-10 lg:mt-12 mb-6 flex flex-col items-center justify-center">
         <div className="mb-4 h-10 w-px rounded-full bg-black"></div>
 
-        <h2 className="font-sans text-2xl font-bold">
+        <h2 className=" text-2xl font-bold">
           پرفروش های این ماه
         </h2>
       </div>
@@ -91,7 +91,7 @@ export default function Products() {
             </div>
 
      
-            <span className="mt-3 text-center font-sans text-sm font-bold text-black">
+            <span className="mt-3 text-center text-sm font-bold text-black">
               {product.name}
             </span>
 

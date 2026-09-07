@@ -73,7 +73,7 @@ export default function Services() {
       <div className="flex flex-col items-center justify-center mb-6">
         <div className="mb-4 h-10 w-px rounded-full bg-black"></div>
 
-        <h2 className="font-sans text-2xl font-bold">
+        <h2 className=" text-2xl font-bold">
           خدمات لایسنس‌مارکت
         </h2>
       </div>
@@ -93,7 +93,7 @@ export default function Services() {
               className="h-20 w-20 sm:h-22 sm:w-22 lg:h-24 lg:w-24 object-contain transition group-hover:scale-105"
             />
 
-            <span className="mt-3 font-sans text-center text-sm font-bold text-black">
+            <span className="mt-3  text-center text-sm font-bold text-black">
               {product.name}
             </span>
           </Link>

@@ -118,7 +118,7 @@ export default function Offers() {
     >
       <div className="flex flex-col sm:flex-row bg-[#d22c4e] p-3 sm:p-4 gap-3 sm:gap-4 lg:gap-5 rounded-2xl overflow-hidden">
 
-        <div className="flex flex-row sm:flex-col justify-between sm:justify-evenly items-center p-3 sm:p-5 lg:p-10 my-0 sm:my-2 lg:my-4 gap-4 sm:gap-5 lg:gap-6 font-sans text-center text-white min-w-0 sm:min-w-45">
+        <div className="flex flex-row sm:flex-col justify-between sm:justify-evenly items-center p-3 sm:p-5 lg:p-10 my-0 sm:my-2 lg:my-4 gap-4 sm:gap-5 lg:gap-6  text-center text-white min-w-0 sm:min-w-45">
 
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold">
             پیشنهاد <br />
@@ -161,7 +161,7 @@ export default function Offers() {
               <Link
                 key={product.name}
                 href={product.link}
-                className="bg-white font-sans rounded-xl p-3 sm:p-4 min-w-55 sm:min-w-62.5 relative block"
+                className="bg-white  rounded-xl p-3 sm:p-4 min-w-55 sm:min-w-62.5 relative block"
               >
                 <span className="bg-[#d22c4e] text-white px-1 py-1 absolute m-2.5 rounded-full text-sm z-10">
                   {product.discount}

@@ -197,7 +197,7 @@ const aboutItems = [
 
 function Header() {
   return (
-    <header dir="rtl" className="w-full bg-[#0c0c15] font-sans font-bold text-white">
+    <header dir="rtl" className="w-full bg-[#0c0c15] font-bold text-white">
       <div className="mx-auto flex  min-h-22.5 w-full max-w-[1600px] flex-wrap items-center justify-center gap-4 px-3 py-4 sm:gap-5 sm:px-5 lg:min-h-30 lg:justify-between lg:px-8">
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 lg:gap-5">
           <a href="/" aria-label="خانه" className="shrink-0">

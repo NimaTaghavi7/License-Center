@@ -1,4 +1,4 @@
-import About from "../components/home/About";
+import About from "../components/home/Footer";
 import CategoryA from "../components/home/CategoryA";
 import CategoryB from "../components/home/CategoryB";
 import Header from "../components/layout/Header";
@@ -9,6 +9,7 @@ import Product from "../components/home/Product";
 import Services from "../components/home/Services";
 import SpecialServices from "../components/home/SpecialServices";
 import SupportButton from "../components/home/SupportButton";
+import Footer from "../components/home/Footer"
 
 
 export default function Home() {
@@ -23,7 +24,7 @@ export default function Home() {
       <CategoryA />
       <SpecialServices />
       <CategoryB />
-      <About />
+      <Footer />
       <SupportButton />
     </div>
   );

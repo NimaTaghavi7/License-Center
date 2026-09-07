@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Vazirmatn } from "next/font/google";
+import { Geist, Geist_Mono, Vazirmatn } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 const vazir = Vazirmatn({
+  variable: "--font-vazir",
   subsets: ["arabic"],
 });
 
@@ -25,23 +25,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      lang="fa"
+      dir="rtl"
+      className={`${geistSans.variable} ${geistMono.variable} ${vazir.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }
-
-// export default function RootLayout({
-//   children,
-// }: {
-//   children: React.ReactNode;
-// }) {
-//   return (
-//     <html lang="fa" className={vazir.className}>
-//       <body>{children}</body>
-//     </html>
-//   );
-// }
-

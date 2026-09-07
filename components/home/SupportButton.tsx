@@ -19,7 +19,6 @@ export default function SupportButton() {
         <div
           dir="rtl"
           className="
-          font-sans
             fixed
             bottom-24
             right-5
