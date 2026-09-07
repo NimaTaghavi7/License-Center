@@ -848,7 +848,7 @@ export default function CategoryServices() {
                       style={{
                         flex: `0 0 ${cardWidth}`,
                       }}
-                      className="group relative flex min-h-[280px] flex-col items-center rounded-xl border border-gray-200 bg-white p-4 transition duration-300 hover:-translate-y-1 hover:shadow-md"
+                      className="group relative flex min-h-70 flex-col items-center rounded-xl border border-gray-200 bg-white p-4 transition duration-300 hover:-translate-y-1 hover:shadow-md"
                     >
                       <span className="absolute right-3 top-3 z-10 rounded-full bg-[#d22c4e] px-2 py-1 text-xs text-white">
                         {product.discount}
@@ -939,5 +939,3 @@ export default function CategoryServices() {
     </section>
   );
 }
-
-

@@ -1,9 +1,5 @@
-import Example from "../../../components/auth/Example";
+import SignupForm from "@/components/auth/signup-form";
 
-export default function Home() {
-  return (
-    <div>
-    <Example />
-    </div>
-  );
+export default function RegisterPage() {
+  return <SignupForm />;
 }

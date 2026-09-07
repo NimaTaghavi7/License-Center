@@ -36,7 +36,7 @@ export default function Services() {
           <Link
             key={product.name}
             href={product.link}
-            className="group relative aspect-[2/1] overflow-hidden rounded-xl bg-white transition duration-300 hover:-translate-y-1"
+            className="group relative aspect-2/1 overflow-hidden rounded-xl bg-white transition duration-300 hover:-translate-y-1"
           >
             <Image
               src={product.image}

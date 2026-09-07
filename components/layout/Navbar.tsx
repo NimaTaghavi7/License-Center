@@ -198,10 +198,10 @@ const aboutItems = [
 function Header() {
   return (
     <header dir="rtl" className="w-full bg-[#0c0c15] font-sans font-bold text-white">
-      <div className="mx-auto flex  min-h-[90px] w-full max-w-[1600px] flex-wrap items-center justify-center gap-4 px-3 py-4 sm:gap-5 sm:px-5 lg:min-h-[120px] lg:justify-between lg:px-8">
+      <div className="mx-auto flex  min-h-22.5 w-full max-w-[1600px] flex-wrap items-center justify-center gap-4 px-3 py-4 sm:gap-5 sm:px-5 lg:min-h-30 lg:justify-between lg:px-8">
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 lg:gap-5">
           <a href="/" aria-label="خانه" className="shrink-0">
-            <img src="/image1.webp" alt="لوگو" className="h-14 w-14 object-contain sm:h-16 sm:w-16 lg:h-[72px] lg:w-[72px]" />
+            <img src="/image1.webp" alt="لوگو" className="h-14 w-14 object-contain sm:h-16 sm:w-16 lg:h-18 lg:w-18" />
           </a>
 
           <NavigationMenu dir="rtl" className="z-50">
@@ -213,7 +213,7 @@ function Header() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="h-10 rounded-full bg-transparent px-4 text-sm font-bold text-white hover:bg-[#ef394e] focus:bg-[#ef394e] data-popup-open:!bg-[#ef394e] data-open:!bg-[#ef394e]">
+                <NavigationMenuTrigger className="h-10 rounded-full bg-transparent px-4 text-sm font-bold text-white hover:bg-[#ef394e] focus:bg-[#ef394e] data-popup-open:bg-[#ef394e]! data-open:bg-[#ef394e]!">
                   خدمات ما
                 </NavigationMenuTrigger>
 
@@ -245,11 +245,11 @@ function Header() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="h-10 rounded-full bg-transparent px-4 text-sm font-bold text-white hover:bg-[#ef394e] focus:bg-[#ef394e] data-popup-open:!bg-[#ef394e] data-open:!bg-[#ef394e]">
+                <NavigationMenuTrigger className="h-10 rounded-full bg-transparent px-4 text-sm font-bold text-white hover:bg-[#ef394e] focus:bg-[#ef394e] data-popup-open:bg-[#ef394e]! data-open:bg-[#ef394e]!">
                   درباره ما
                 </NavigationMenuTrigger>
 
-                <NavigationMenuContent className="w-[240px] rounded-2xl border border-white/10 bg-[#12121d] p-2 text-white shadow-2xl">
+                <NavigationMenuContent className="w-60 rounded-2xl border border-white/10 bg-[#12121d] p-2 text-white shadow-2xl">
                   <div className="flex flex-col gap-1">
                     {aboutItems.map((item, index) => (
                       <NavigationMenuLink key={`${item.title}-${index}`} href={item.href} className="block rounded-xl px-4 py-3 text-right text-sm font-semibold text-white/75 transition-colors hover:bg-[#ef394e]/10 hover:text-[#ef394e] focus:bg-[#ef394e]/10 focus:text-[#ef394e] focus:outline-none">

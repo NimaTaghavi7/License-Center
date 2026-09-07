@@ -1,9 +1,6 @@
-import Example from "../../../components/auth/Example";
+import { LoginForm } from "@/components/auth/login-form";
 
-export default function Home() {
-  return (
-    <div>
-    <Example />
-    </div>
-  );
+export default function LoginPage() {
+  return <LoginForm />;
 }
+

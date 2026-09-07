@@ -71,7 +71,7 @@ export default function Services() {
     <section className="flex flex-col items-center justify-center gap-6 w-full px-3 sm:px-4 lg:px-6 py-0">
       
       <div className="flex flex-col items-center justify-center mb-6">
-        <div className="mb-4 h-10 w-0.25 rounded-full bg-black"></div>
+        <div className="mb-4 h-10 w-px rounded-full bg-black"></div>
 
         <h2 className="font-sans text-2xl font-bold">
           خدمات لایسنس‌مارکت
