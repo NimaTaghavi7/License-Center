@@ -12,6 +12,7 @@ export default function SignupForm() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [age, setAge] = useState("");
+  
   const [remember, setRemember] = useState(false);
 
   const [showPassword, setShowPassword] = useState(false);

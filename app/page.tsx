@@ -7,7 +7,7 @@ import Navbar from "../components/layout/Navbar";
 import Offers from "../components/home/Offers";
 import Product from "../components/home/Product";
 import Services from "../components/home/Services";
-import SpecialServices from "../components/home/SpecialServices";
+import ServiceShowcase from "../components/home/ServiceShowcase";
 import SupportButton from "../components/home/SupportButton";
 import Footer from "../components/home/Footer"
 
@@ -22,7 +22,7 @@ export default function Home() {
       <Services />
       <Product />
       <CategoryA />
-      <SpecialServices />
+      <ServiceShowcase />
       <CategoryB />
       <Footer />
       <SupportButton />
