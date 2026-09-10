@@ -5,32 +5,30 @@ import Link from "next/link";
 
 const products = [
   {
+    name: "سرویس آموزشی",
+    image: "/image-category5.webp",
+    link: "/services/service9",
+  },
+  {
     name: "کارت اعتباری ارزی",
-    image: "/image-category1.webp",
+    image: "/image-category6.webp",
     link: "/services/service12",
   },
   {
     name: "سرویس ویدیویی",
-    image: "/image-category2.webp",
+    image: "/image-category7.webp",
     link: "/services/service11",
   },
   {
     name: "سرویس صوتی",
-    image: "/image-category3.webp",
+    image: "/image-category8.webp",
     link: "/services/service10",
-  },
-  {
-    name: "سرویس آموزشی",
-    image: "/image-category4.webp",
-    link: "/services/service9",
   },
 ];
 
 export default function Services() {
   return (
-    <section className="flex w-full flex-col items-center justify-center gap-6 px-3 py-0 sm:px-4 lg:px-6">
-      <div className="mb-6 flex flex-col items-center justify-center"></div>
-
+    <section className="flex w-full flex-col items-center justify-center my-15 gap-6 px-3 py-0 sm:px-4 lg:px-6">
       <div className="grid w-full max-w-6xl grid-cols-2 gap-3 sm:gap-4">
         {products.map((product) => (
           <Link
@@ -43,7 +41,7 @@ export default function Services() {
               alt={product.name}
               fill
               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 600px"
-              className="object-cover transition duration-300 group-hover:scale-105"
+              className="object-cover transition duration-500 group-hover:scale-105"
             />
           </Link>
         ))}

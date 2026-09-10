@@ -1,11 +1,10 @@
-import About from "../components/home/Footer";
-import CategoryA from "../components/home/CategoryA";
-import CategoryB from "../components/home/CategoryB";
+import CategoryTop from "../components/home/CategoryTop";
+import CategoryBottom from "../components/home/CategoryBottom";
 import Header from "../components/layout/Header";
 import Herosection from "../components/home/Herosection";
 import Navbar from "../components/layout/Navbar";
 import Offers from "../components/home/Offers";
-import Product from "../components/home/Product";
+import BestSellers from "../components/home/BestSellers";
 import Services from "../components/home/Services";
 import ServiceShowcase from "../components/home/ServiceShowcase";
 import SupportButton from "../components/home/SupportButton";
@@ -20,10 +19,10 @@ export default function Home() {
       <Herosection />  
       <Offers />
       <Services />
-      <Product />
-      <CategoryA />
+      <BestSellers />
+      <CategoryTop />
       <ServiceShowcase />
-      <CategoryB />
+      <CategoryBottom />
       <Footer />
       <SupportButton />
     </div>

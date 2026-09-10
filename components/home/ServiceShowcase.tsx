@@ -461,7 +461,7 @@ export default function CategoryServices() {
       {categories.map((category, categoryIndex) => (
         <div key={category.title} className="flex w-full flex-col gap-5">
           <div className="flex items-center justify-between gap-4">
-            <h2 className="text-lg font-bold sm:text-xl md:text-2xl">
+            <h2 className="text-lg font-bold mb-4 sm:text-xl md:text-2xl">
               {category.title}
             </h2>
 
@@ -519,7 +519,7 @@ export default function CategoryServices() {
                 width={1200}
                 height={300}
                 sizes="(max-width: 768px) 100vw, 1200px"
-                className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                className="h-auto w-full object-cover transition-transform mt-10 duration-500 group-hover:scale-[1.02]"
               />
             </Link>
           )}
@@ -535,7 +535,7 @@ export default function CategoryServices() {
                 width={1200}
                 height={300}
                 sizes="(max-width: 768px) 100vw, 1200px"
-                className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                className="h-auto w-full object-cover transition-transform  mt-10 duration-500 group-hover:scale-[1.02]"
               />
             </Link>
           )}
