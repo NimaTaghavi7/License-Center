@@ -14,42 +14,38 @@ import {
 
 import { Search, ShoppingCart, X } from "lucide-react";
 
-const serviceColumns = [
+const serviceItems = [
   {
-    title: "خدمات کاربردی",
+    title: "خرید اکانت هوش مصنوعی",
     href: "/category/artificial-intelligence",
-    items: [
-      {
-        title: "خرید اکانت هوش مصنوعی",
-        href: "/category/artificial-intelligence",
-      },
-      {
-        title: "خرید اکانت ابزارهای سئو",
-        href: "/category/seo-tools",
-      },
-      {
-        title: "شماره مجازی دائمی آمریکا",
-        href: "/product/Google-Voice",
-      },
-      {
-        title: "خرید اکانت تریدینگ ویو",
-        href: "/product/TradingView",
-      },
-      {
-        title: "اشتراک فضای ابری",
-        href: "/category/cloud-storages",
-      },
-      {
-        title: "خرید اشتراک روزنامه و مجله",
-        href: "/category/news-and-magazines",
-      },
-      {
-        title: "درخواست محصول جدید ✉️",
-        href: "/request-new-product",
-      },
-    ],
   },
+  {
+    title: "خرید اکانت ابزارهای سئو",
+    href: "/category/seo-tools",
+  },
+  {
+    title: "شماره مجازی دائمی آمریکا",
+    href: "/product/Google-Voice",
+  },
+  {
+    title: "خرید اکانت تریدینگ ویو",
+    href: "/product/TradingView",
+  },
+  {
+    title: "اشتراک فضای ابری",
+    href: "/category/cloud-storages",
+  },
+  {
+    title: "خرید اشتراک روزنامه و مجله",
+    href: "/category/news-and-magazines",
+  },
+  {
+    title: "درخواست محصول جدید ✉️",
+    href: "/request-new-product",
+  },
+];
 
+const serviceColumns = [
   {
     title: "اشتراک سرویس ویدیویی",
     href: "/category/video-streaming",
@@ -248,6 +244,20 @@ function Header() {
 
                 <NavigationMenuContent className="w-[min(1250px,calc(100vw-24px))] rounded-2xl border border-white/10 bg-[#12121d] p-4 text-white shadow-2xl sm:p-5 lg:p-6">
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5 lg:gap-5">
+                    <div className="min-w-0 border-b border-white/10 pb-4 sm:border-b-0 sm:pb-0">
+                      <div className="flex flex-col gap-0.5">
+                        {serviceItems.map((item) => (
+                          <NavigationMenuLink
+                            key={item.title}
+                            href={item.href}
+                            className="block rounded-lg px-3 py-2 text-right text-sm font-medium leading-6 text-white/70 transition-all hover:bg-[#ef394e]/10 hover:pr-4 hover:text-[#ef394e] focus:bg-[#ef394e]/10 focus:text-[#ef394e] focus:outline-none"
+                          >
+                            {item.title}
+                          </NavigationMenuLink>
+                        ))}
+                      </div>
+                    </div>
+
                     {serviceColumns.map((column) => (
                       <div
                         key={column.title}
