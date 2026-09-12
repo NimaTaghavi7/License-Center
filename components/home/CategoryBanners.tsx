@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { categories } from "@/lib/data/categories";
+import { categories } from "@/data/categories";
 
 const categoryCards = [
   {
@@ -24,7 +24,7 @@ const categoryCards = [
   },
 ];
 
-export default function Services() {
+export default function Category() {
   return (
     <section className="flex w-full flex-col items-center justify-center my-15 gap-6 px-3 py-0 sm:px-4 lg:px-6">
       <div className="grid w-full max-w-6xl grid-cols-2 gap-3 sm:gap-4">

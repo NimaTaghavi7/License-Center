@@ -11,74 +11,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-import { products } from "@/lib/data/products";
-
-const categories = [
-  {
-    title: "سرویس های کاربردی و ویژه",
-    link: "/category/utility",
-    productIds: [
-      "product-11",
-      "product-12",
-      "product-13",
-      "product-14",
-      "product-15",
-      "product-16",
-      "product-17",
-      "product-18",
-      "product-19",
-      "product-20",
-    ],
-  },
-  {
-    title: "سرویس های پخش فیلم و سریال",
-    link: "/category/vod",
-    productIds: [
-      "product-21",
-      "product-22",
-      "product-23",
-      "product-24",
-      "product-25",
-      "product-26",
-      "product-27",
-      "product-28",
-      "product-29",
-      "product-30",
-    ],
-  },
-  {
-    title: "سرویس های پخش موسیقی",
-    link: "/category/podcast-and-internet-radio",
-    productIds: [
-      "product-31",
-      "product-32",
-      "product-33",
-      "product-34",
-      "product-35",
-      "product-36",
-      "product-37",
-      "product-38",
-      "product-39",
-      "product-40",
-    ],
-  },
-  {
-    title: "سرویس های آموزشی",
-    link: "/category/education",
-    productIds: [
-      "product-41",
-      "product-42",
-      "product-43",
-      "product-44",
-      "product-45",
-      "product-46",
-      "product-47",
-      "product-48",
-      "product-49",
-      "product-50",
-    ],
-  },
-];
+import { products } from "@/data/products";
+import { showcaseSections } from "@/data/home";
 
 function ProductCard({
   product,
@@ -148,23 +82,23 @@ export default function ServiceShowcase() {
       dir="rtl"
       className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-3 sm:gap-14 sm:px-4 md:gap-16 md:px-6 lg:px-8"
     >
-      {categories.map((category, categoryIndex) => {
-        const categoryProducts = category.productIds
+      {showcaseSections.map((section, sectionIndex) => {
+        const sectionProducts = section.productIds
           .map((id) => products.find((product) => product.id === id))
           .filter((product) => product !== undefined);
 
         return (
           <div
-            key={category.title}
+            key={section.title}
             className="flex w-full flex-col gap-5"
           >
             <div className="flex items-center justify-between gap-4">
               <h2 className="mb-4 text-lg font-bold sm:text-xl md:text-2xl">
-                {category.title}
+                {section.title}
               </h2>
 
               <Link
-                href={category.link}
+                href={section.link}
                 className="shrink-0 text-sm font-bold text-[#d22c4e] transition-opacity duration-200 hover:opacity-70"
               >
                 مشاهده همه
@@ -184,7 +118,7 @@ export default function ServiceShowcase() {
                 className="w-full"
               >
                 <CarouselContent className="-ml-3">
-                  {categoryProducts.map((product) => (
+                  {sectionProducts.map((product) => (
                     <CarouselItem
                       key={product.id}
                       className="basis-1/2 pl-3 md:basis-1/3 lg:basis-1/4"
@@ -206,7 +140,7 @@ export default function ServiceShowcase() {
               </Carousel>
             </div>
 
-            {categoryIndex === 0 && (
+            {sectionIndex === 0 && (
               <Link
                 href="/category/banner-1"
                 className="group mt-2 block w-full overflow-hidden rounded-2xl"
@@ -222,7 +156,7 @@ export default function ServiceShowcase() {
               </Link>
             )}
 
-            {categoryIndex === 2 && (
+            {sectionIndex === 2 && (
               <Link
                 href="/category/banner-2"
                 className="group mt-2 block w-full overflow-hidden rounded-2xl"

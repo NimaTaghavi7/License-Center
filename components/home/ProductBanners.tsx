@@ -3,26 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { products } from "@/lib/data/products";
-
-const productBanners = [
-  {
-    productId: "product-1",
-    image: "/image-category5.webp",
-  },
-  {
-    productId: "product-2",
-    image: "/image-category6.webp",
-  },
-  {
-    productId: "product-3",
-    image: "/image-category7.webp",
-  },
-  {
-    productId: "product-4",
-    image: "/image-category8.webp",
-  },
-];
+import { products } from "@/data/products";
+import { productBanners } from "@/data/home";
 
 export default function ProductBanners() {
   return (

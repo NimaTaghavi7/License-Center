@@ -3,20 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 
-import { products } from "@/lib/data/products";
-
-const offerProductIds = [
-  "product-1",
-  "product-2",
-  "product-3",
-  "product-4",
-  "product-5",
-  "product-6",
-  "product-7",
-  "product-8",
-  "product-9",
-  "product-10",
-];
+import { products } from "@/data/products";
+import { offerProductIds } from "@/data/home";
 
 export default function Offers() {
   const [start, setStart] = useState(0);

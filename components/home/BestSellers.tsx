@@ -3,14 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { products } from "@/lib/data/products";
-
-const bestSellerProductIds = [
-  "product-1",
-  "product-2",
-  "product-3",
-  "product-4",
-];
+import { products } from "@/data/products";
+import { bestSellerProductIds } from "@/data/home";
 
 export default function Products() {
   const bestSellerProducts = bestSellerProductIds

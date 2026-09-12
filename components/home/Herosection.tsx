@@ -3,55 +3,31 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-import { products } from "@/lib/data/products";
-
-const slides = [
-  {
-    image: "/image-herosection1.webp",
-    productId: "product-1",
-  },
-  {
-    image: "/image-herosection2.webp",
-    productId: "product-2",
-  },
-  {
-    image: "/image-herosection3.webp",
-    productId: "product-3",
-  },
-  {
-    image: "/image-herosection4.webp",
-    productId: "product-4",
-  },
-  {
-    image: "/image-herosection5.webp",
-    productId: "product-5",
-  },
-  {
-    image: "/image-herosection6.webp",
-    productId: "product-6",
-  },
-];
+import { products } from "@/data/products";
+import { heroSlides } from "@/data/home";
 
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
+      setCurrent((prev) => (prev + 1) % heroSlides.length);
     }, 4000);
 
     return () => clearInterval(timer);
   }, []);
 
   const nextSlide = () => {
-    setCurrent((prev) => (prev + 1) % slides.length);
+    setCurrent((prev) => (prev + 1) % heroSlides.length);
   };
 
   const prevSlide = () => {
-    setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
+    setCurrent(
+      (prev) => (prev - 1 + heroSlides.length) % heroSlides.length
+    );
   };
 
-  const currentSlide = slides[current];
+  const currentSlide = heroSlides[current];
 
   const product = products.find(
     (product) => product.id === currentSlide.productId
