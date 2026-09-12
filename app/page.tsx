@@ -1,5 +1,5 @@
 import CategoryTop from "../components/home/CategoryTop";
-import CategoryBottom from "../components/home/CategoryBottom";
+import ProductBanners from "../components/home/ProductBanners";
 import Header from "../components/layout/Header";
 import Herosection from "../components/home/Herosection";
 import Navbar from "../components/layout/Navbar";
@@ -22,7 +22,7 @@ export default function Home() {
       <BestSellers />
       <CategoryTop />
       <ServiceShowcase />
-      <CategoryBottom />
+      <ProductBanners />
       <Footer />
       <SupportButton />
     </div>

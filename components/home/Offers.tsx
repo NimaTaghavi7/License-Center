@@ -3,104 +3,30 @@
 import { useState } from "react";
 import Link from "next/link";
 
-const products = [
-  {
-    name: "خرید اکانت گرامرلی Grammarly با ایمیل شما (با ۹۱% تخفیف)",
-    image: "/offer1.webp",
-    hoverimage: "/offer1h.webp",
-    oldPrice: "۱٫۱۹۹٫۰۰۰",
-    price: "۱۹۹٫۰۰۰",
-    discount: " ۹۱%",
-    link: "/products/11",
-  },
-  {
-    name: "خرید دوره آموزشی از یودمی Udemy با اکانت شما با (با ۹۱% تخفیف)",
-    image: "/offer2.webp",
-    hoverimage: "/offer2h.webp",
-    oldPrice: "۶٫۵۹۹٫۰۰۰",
-    price: "۴۹۹٫۰۰۰",
-    discount: "17%",
-    link: "/products/12",
-  },
-  {
-    name: "YouTube Premium",
-    image: "/offer3.webp",
-    hoverimage: "/offer3h.webp",
-    oldPrice: "200,000",
-    price: "160,000",
-    discount: "20%",
-    link: "/products/13",
-  },
-  {
-    name: "ChatGPT Plus",
-    image: "/offer4.webp",
-    hoverimage: "/offer4h.webp",
-    oldPrice: "500,000",
-    price: "400,000",
-    discount: "20%",
-    link: "/products/14",
-  },
-  {
-    name: "YouTube Premium3",
-    image: "/products/youtube.jpg",
-    hoverimage: "/products/youtube-hover.jpg",
-    oldPrice: "200,000",
-    price: "160,000",
-    discount: "20%",
-    link: "/products/15",
-  },
-  {
-    name: "ChatGPT Plus3",
-    image: "/products/chatgpt.jpg",
-    hoverimage: "/products/chatgpt-hover.jpg",
-    oldPrice: "500,000",
-    price: "400,000",
-    discount: "20%",
-    link: "/products/16",
-  },
-  {
-    name: "Netflix Premium4",
-    image: "/products/netflix.jpg",
-    hoverimage: "/products/netflix-hover.jpg",
-    oldPrice: "209,000",
-    price: "199,000",
-    discount: "5%",
-    link: "/products/17",
-  },
-  {
-    name: "YouTube Premium32",
-    image: "/products/youtube.jpg",
-    hoverimage: "/products/youtube-hover.jpg",
-    oldPrice: "200,000",
-    price: "160,000",
-    discount: "20%",
-    link: "/products/18",
-  },
-  {
-    name: "ChatGPT Plus30",
-    image: "/products/chatgpt.jpg",
-    hoverimage: "/products/chatgpt-hover.jpg",
-    oldPrice: "500,000",
-    price: "400,000",
-    discount: "20%",
-    link: "/products/19",
-  },
-  {
-    name: "Netflix Premium40",
-    image: "/products/netflix.jpg",
-    hoverimage: "/products/netflix-hover.jpg",
-    oldPrice: "209,000",
-    price: "199,000",
-    discount: "5%",
-    link: "/products/20",
-  },
+import { products } from "@/lib/data/products";
+
+const offerProductIds = [
+  "product-1",
+  "product-2",
+  "product-3",
+  "product-4",
+  "product-5",
+  "product-6",
+  "product-7",
+  "product-8",
+  "product-9",
+  "product-10",
 ];
 
 export default function Offers() {
   const [start, setStart] = useState(0);
 
+  const offerProducts = offerProductIds
+    .map((id) => products.find((product) => product.id === id))
+    .filter((product) => product !== undefined);
+
   const next = () => {
-    if (start < products.length - 3) {
+    if (start < offerProducts.length - 3) {
       setStart(start + 1);
     }
   };
@@ -114,70 +40,69 @@ export default function Offers() {
   return (
     <section
       dir="rtl"
-      className="mx-auto w-full  max-w-6xl mb-8 sm:mb-10 lg:mb-12 px-3 sm:px-4 lg:px-6"
+      className="mx-auto mb-8 w-full max-w-6xl px-3 sm:mb-10 sm:px-4 lg:mb-12 lg:px-6"
     >
-      <div className="flex flex-col sm:flex-row bg-[#d22c4e] p-3 sm:p-4 gap-3 sm:gap-4 lg:gap-5 rounded-2xl overflow-hidden">
-
-        <div className="flex flex-row sm:flex-col justify-between sm:justify-evenly items-center p-3 sm:p-5 lg:p-10 my-0 sm:my-2 lg:my-4 gap-4 sm:gap-5 lg:gap-6  text-center text-white min-w-0 sm:min-w-45">
-
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold">
+      <div className="flex flex-col gap-3 overflow-hidden rounded-2xl bg-[#d22c4e] p-3 sm:flex-row sm:gap-4 sm:p-4 lg:gap-5">
+        <div className="my-0 flex min-w-0 flex-row items-center justify-between gap-4 p-3 text-center text-white sm:my-2 sm:min-w-45 sm:flex-col sm:justify-evenly sm:gap-5 sm:p-5 lg:my-4 lg:gap-6 lg:p-10">
+          <h2 className="text-xl font-bold sm:text-2xl lg:text-3xl">
             پیشنهاد <br />
             شگفت‌ <br />
             انگیز
           </h2>
 
           <img
-            className="w-7 h-7"
-            src="percent.webp"
+            className="h-7 w-7"
+            src="/percent.webp"
             alt=""
           />
 
           <div>
             <button
               onClick={prev}
-              className="px-2 sm:px-3 text-xl"
+              className="px-2 text-xl sm:px-3"
             >
               ❮
             </button>
 
             <button
               onClick={next}
-              className="px-2 sm:px-3 text-xl"
+              className="px-2 text-xl sm:px-3"
             >
               ❯
             </button>
           </div>
-
         </div>
 
-        <div className="overflow-hidden flex-1 min-w-0">
+        <div className="flex-1 overflow-hidden">
           <div
             className="flex gap-3 transition-transform duration-500"
             style={{
               transform: `translateX(${start * 274}px)`,
             }}
           >
-            {products.map((product) => (
+            {offerProducts.map((product) => (
               <Link
-                key={product.name}
-                href={product.link}
-                className="bg-white  rounded-xl p-3 sm:p-4 min-w-55 sm:min-w-62.5 relative block"
+                key={product.id}
+                href={`/products/${product.slug}`}
+                className="relative block min-w-55 rounded-xl bg-white p-3 sm:min-w-62.5 sm:p-4"
               >
-                <span className="bg-[#d22c4e] text-white px-1 py-1 absolute m-2.5 rounded-full text-sm z-10">
-                  {product.discount}
-                </span>
+                {product.discount !== undefined && (
+                  <span className="absolute z-10 m-2.5 rounded-full bg-[#d22c4e] px-1 py-1 text-sm text-white">
+                    {product.discount}%
+                  </span>
+                )}
 
-                <div className="relative w-full h-36 sm:h-44 lg:h-50">
+                <div className="relative h-36 w-full sm:h-44 lg:h-50">
                   <img
                     src={product.image}
-                    className="w-full h-full object-center object-contain transition-opacity duration-300 hover:opacity-0"
+                    className="h-full w-full object-contain object-center transition-opacity duration-300 hover:opacity-0"
                     alt={product.name}
                   />
 
-                  {product.hoverimage && (
+                  {product.hoverImage && (
                     <img
-                      src={product.hoverimage}
-                      className="absolute inset-0 w-full h-full object-center object-contain opacity-0 transition-opacity duration-300 hover:opacity-100"
+                      src={product.hoverImage}
+                      className="absolute inset-0 h-full w-full object-contain object-center opacity-0 transition-opacity duration-300 hover:opacity-100"
                       alt={product.name}
                     />
                   )}
@@ -188,21 +113,23 @@ export default function Offers() {
                 </h3>
 
                 <div className="mt-3">
-                  <p className="text-gray-400 line-through text-sm mt-2">
-                    {product.oldPrice} تومان
-                  </p>
+                  {product.oldPrice !== undefined && (
+                    <p className="mt-2 text-sm text-gray-400 line-through">
+                      {product.oldPrice.toLocaleString("fa-IR")} تومان
+                    </p>
+                  )}
 
-                  <p className="font-bold text-lg">
-                    {product.price} تومان
-                  </p>
+                  {product.price !== undefined && (
+                    <p className="text-lg font-bold">
+                      {product.price.toLocaleString("fa-IR")} تومان
+                    </p>
+                  )}
                 </div>
               </Link>
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );
 }
-
