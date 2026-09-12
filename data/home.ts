@@ -40,7 +40,7 @@ export const productBanners = [
 export const showcaseSections = [
   {
     title: "سرویس های کاربردی و ویژه",
-    link: "/category/utility",
+    link: "/categories/utility",
     productIds: [
       "product-11",
       "product-12",
@@ -56,7 +56,7 @@ export const showcaseSections = [
   },
   {
     title: "سرویس های پخش فیلم و سریال",
-    link: "/category/vod",
+    link: "/categories/video",
     productIds: [
       "product-21",
       "product-22",
@@ -72,7 +72,7 @@ export const showcaseSections = [
   },
   {
     title: "سرویس های پخش موسیقی",
-    link: "/category/podcast-and-internet-radio",
+    link: "/categories/audio",
     productIds: [
       "product-31",
       "product-32",
@@ -88,7 +88,7 @@ export const showcaseSections = [
   },
   {
     title: "سرویس های آموزشی",
-    link: "/category/education",
+    link: "/categories/education",
     productIds: [
       "product-41",
       "product-42",
@@ -130,3 +130,4 @@ export const heroSlides = [
     productId: "product-6",
   },
 ];
+

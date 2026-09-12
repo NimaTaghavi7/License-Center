@@ -4,6 +4,7 @@ export type Category = {
   slug: string;
   image: string;
   kind: "category" | "request";
+  showInCategoryList?: boolean;
 };
 
 export const categories: Category[] = [
@@ -91,4 +92,12 @@ export const categories: Category[] = [
     image: "/image-service0.webp",
     kind: "request",
   },
+  {
+  id: "utility",
+  name: "سرویس های کاربردی و ویژه",
+  slug: "utility",
+  image: "/image-service13.webp",
+  kind: "category",
+  showInCategoryList: false,
+}
 ];
