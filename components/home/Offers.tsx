@@ -165,7 +165,6 @@ export default function Offers() {
                 </CarouselItem>
               ))}
 
-              {/* مشاهده همه */}
               <CarouselItem className="basis-[49%] pl-2 sm:basis-1/3 lg:basis-[22%]">
                 <Link
                   href="/offers"

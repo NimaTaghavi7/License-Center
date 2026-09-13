@@ -9,6 +9,7 @@ import Category from "../components/home/Category";
 import ProductShowcase from "../components/home/ProductShowcase";
 import SupportButton from "../components/home/SupportButton";
 import Footer from "../components/home/Footer"
+import BlogPosts from "@/components/home/BlogPosts";
 
 
 export default function Home() {
@@ -23,6 +24,7 @@ export default function Home() {
       <CategoryBanners />
       <ProductShowcase />
       <ProductBanners />
+      <BlogPosts />
       <Footer />
       <SupportButton />
     </div>
