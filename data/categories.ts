@@ -100,4 +100,5 @@ export const categories: Category[] = [
   kind: "category",
   showInCategoryList: false,
 }
+
 ];

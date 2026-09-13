@@ -26,15 +26,15 @@ function ProductCard({ product }: { product: (typeof products)[number] }) {
           <span className="absolute right-5 top-8.5 z-10 rounded-full bg-[#d22c4e] px-1.5 py-0.5 text-sm text-white  sm:top-10 md:px-2 md:right-6 md:top-7 lg:px-2 lg:right-7 lg:top-13 xl:px-3 xl:right-7 xl:top-10">
             تخفیف
           </span>
-
-          <button
-            type="button"
-            className="absolute left-3 top-4 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-[#d22c4e] text-lg font-bold leading-none text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:left-6 sm:top-5 lg:left-7 lg:top-10"
-          >
-            +
-          </button>
         </>
       )}
+
+      <button
+        type="button"
+        className="absolute left-3 top-4 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-[#d22c4e] text-lg font-bold leading-none text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:left-6 sm:top-5 lg:left-7 lg:top-10"
+      >
+        +
+      </button>
 
       <div className="relative h-44 w-full sm:h-52 lg:h-64">
         <Image
