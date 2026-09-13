@@ -39,9 +39,9 @@ function BlogCard({ post }: { post: (typeof blogPosts)[number] }) {
             />
           </div>
 
-          <div className="relative z-10 -mt-13 ml-3 w-[60%] rounded-md bg-white px-2.5 py-2.5 shadow-md sm:-mt-16 sm:ml-4 sm:px-3.5 sm:py-3">
+          <div className="relative z-10 -mt-13 ml-3 w-[70%] rounded-md bg-white px-2.5 py-2.5 shadow-md sm:-mt-16 sm:ml-4 sm:px-3.5 sm:py-3">
             <h3 className="line-clamp-2 text-[11px] font-bold leading-4.5 text-gray-900 transition-colors duration-200 group-hover:text-[#d22c4e] sm:text-xs sm:leading-5">
-              {post.title}
+              {post.title} 
             </h3>
 
             <p className="mt-1.5 text-[9px] text-gray-400 sm:text-[10px]">
@@ -61,23 +61,10 @@ export default function BlogPosts() {
       className="mx-auto w-full max-w-300 px-3 pb-7 sm:px-4 sm:pb-9 lg:px-5 lg:pb-10"
     >
       <div className="mx-auto w-full max-w-300">
-        <div className="mb-4 flex items-center justify-between sm:mb-5">
-          <h2 className="text-base font-bold text-gray-900 sm:text-lg lg:text-xl">
-            مطالب وبلاگ
-          </h2>
+        <div className="mt-8 mb-6 flex flex-col items-center justify-center sm:mt-10 lg:mt-12">
+          <div className="mb-4 h-10 w-px rounded-full bg-black"></div>
 
-          <Link
-            href="/blog"
-            className="group flex items-center gap-1.5 text-xs font-bold text-gray-500 transition-colors duration-200 hover:text-[#d22c4e] sm:text-sm"
-          >
-            مشاهده همه
-            <span
-              aria-hidden="true"
-              className="text-sm transition-transform duration-200 group-hover:-translate-x-1"
-            >
-              ←
-            </span>
-          </Link>
+          <h2 className="text-2xl font-bold mb-2">مطالب وبلاگ</h2>
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">

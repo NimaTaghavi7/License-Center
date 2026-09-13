@@ -34,7 +34,7 @@ export default function Products() {
 
             <button
               type="button"
-              className="absolute left-3 top-4 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-[#d22c4e] text-lg font-bold leading-none text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:left-6 sm:top-5 lg:left-7 lg:top-9"
+              className="absolute left-3 top-4 z-10 flex h-6 w-10 items-center justify-center rounded-full bg-[#d22c4e] text-lg font-bold leading-none text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:left-6 sm:top-5 lg:left-7 lg:top-9"
             >
               +
             </button>

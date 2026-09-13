@@ -242,7 +242,7 @@ function Header() {
                   خدمات ما
                 </NavigationMenuTrigger>
 
-                <NavigationMenuContent className="w-[min(1250px,calc(100vw-24px))] rounded-2xl border border-white/10 bg-[#12121d] p-4 text-white shadow-2xl sm:p-5 lg:p-6">
+                <NavigationMenuContent className="w-[min(1250px,calc(100vw-24px))] rounded-2xl border border-white/10 bg-[#0c0c15] p-4 text-white shadow-2xl sm:p-5 lg:p-6">
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5 lg:gap-5">
                     <div className="min-w-0 border-b border-white/10 pb-4 sm:border-b-0 sm:pb-0">
                       <div className="flex flex-col gap-0.5">
@@ -301,7 +301,7 @@ function Header() {
                   درباره ما
                 </NavigationMenuTrigger>
 
-                <NavigationMenuContent className="w-60 rounded-2xl border border-white/10 bg-[#12121d] p-2 text-white shadow-2xl">
+                <NavigationMenuContent className="w-60 rounded-2xl border border-white/10 bg-[#0c0c15] p-2 text-white shadow-2xl">
                   <div className="flex flex-col gap-1">
                     {aboutItems.map((item, index) => (
                       <NavigationMenuLink
@@ -344,7 +344,7 @@ function Header() {
                       handleSearch();
                     }
                   }}
-                  placeholder="جستجو..."
+                  placeholder="نام برنامه یا سرویس"
                   className="h-full w-full bg-transparent px-3 text-sm font-medium text-[#0c0c15] outline-none placeholder:text-gray-400"
                 />
               </div>

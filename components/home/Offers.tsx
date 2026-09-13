@@ -68,7 +68,7 @@ export default function Offers() {
             />
 
             <Link
-              href="/offers"
+               href="categories/offers"
               className="hidden items-center gap-1.5 rounded-lg border border-white/40 px-4 py-2 text-sm font-bold text-white transition-all duration-200 hover:bg-white hover:text-[#d22c4e] sm:flex"
             >
               مشاهده همه
@@ -77,7 +77,7 @@ export default function Offers() {
           </div>
 
           <Link
-            href="/offers"
+             href="categories/offers"
             className="flex shrink-0 items-center gap-1 rounded-lg border border-white/40 px-3 py-2 text-xs font-bold text-white transition-all duration-200 hover:bg-white hover:text-[#d22c4e] sm:hidden"
           >
             مشاهده همه
@@ -115,7 +115,7 @@ export default function Offers() {
 
                     <button
                       type="button"
-                      className="absolute left-3 top-4 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-[#d22c4e] text-lg font-bold leading-none text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:left-6 sm:top-5 lg:left-3 lg:top-2.5"
+                      className="absolute left-3 top-4 z-10 flex h-6 w-10 items-center justify-center rounded-full bg-[#d22c4e] text-lg font-bold leading-none text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:left-6 sm:top-5 lg:left-3 lg:top-2.5"
                     >
                       +
                     </button>
@@ -167,7 +167,7 @@ export default function Offers() {
 
               <CarouselItem className="basis-[49%] pl-2 sm:basis-1/3 lg:basis-[22%]">
                 <Link
-                  href="/offers"
+                  href="categories/offers"
                   className="flex h-full min-h-40 items-center justify-center rounded-xl bg-white text-sm font-bold text-[#d22c4e] transition-all duration-300 hover:shadow-lg sm:min-h-80 lg:min-h-88"
                 >
                   <div className="flex flex-col items-center gap-3">

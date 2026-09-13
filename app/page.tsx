@@ -9,7 +9,7 @@ import Category from "../components/home/Category";
 import ProductShowcase from "../components/home/ProductShowcase";
 import SupportButton from "../components/home/SupportButton";
 import Footer from "../components/home/Footer"
-import BlogPosts from "@/components/home/BlogPosts";
+import BlogPosts from "../components/home/BlogPosts";
 
 
 export default function Home() {

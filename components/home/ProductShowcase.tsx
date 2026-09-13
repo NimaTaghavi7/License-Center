@@ -23,7 +23,7 @@ function ProductCard({ product }: { product: (typeof products)[number] }) {
     >
       {product.discount !== undefined && (
         <>
-          <span className="absolute right-5 top-8.5 z-10 rounded-full bg-[#d22c4e] px-1.5 py-0.5 text-sm text-white  sm:top-10 md:px-2 md:right-6 md:top-7 lg:px-2 lg:right-7 lg:top-13 xl:px-3 xl:right-7 xl:top-10">
+          <span className="absolute right-5 top-8.5 z-10 rounded-full bg-[#d22c4e] px-1.5 py-0.5 text-sm text-white sm:top-10 md:right-6 md:top-7 md:px-2 lg:right-7 lg:top-13 lg:px-2 xl:right-7 xl:top-8 xl:px-3">
             تخفیف
           </span>
         </>
@@ -31,7 +31,7 @@ function ProductCard({ product }: { product: (typeof products)[number] }) {
 
       <button
         type="button"
-        className="absolute left-3 top-4 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-[#d22c4e] text-lg font-bold leading-none text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:left-6 sm:top-5 lg:left-7 lg:top-10"
+        className="absolute left-3 top-4 z-10 flex h-6 w-10 items-center justify-center rounded-full bg-[#d22c4e] text-lg font-bold leading-none text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:left-6 sm:top-5 lg:left-7 lg:top-10"
       >
         +
       </button>
@@ -63,17 +63,17 @@ function ProductCard({ product }: { product: (typeof products)[number] }) {
           {product.name}
         </h3>
 
-        <div className="mt-3 flex items-center justify-center gap-2 whitespace-nowrap">
+        <div className="mt-3 text-center">
           {product.oldPrice !== undefined && (
-            <span className="text-sm text-gray-400 line-through">
+            <p className="mt-2 text-sm text-gray-400 line-through">
               {product.oldPrice.toLocaleString("fa-IR")} تومان
-            </span>
+            </p>
           )}
 
           {product.price !== undefined && (
-            <span className="text-lg font-bold text-black">
+            <p className="text-lg font-bold">
               {product.price.toLocaleString("fa-IR")} تومان
-            </span>
+            </p>
           )}
         </div>
       </div>
@@ -94,17 +94,10 @@ export default function ServiceShowcase() {
 
         return (
           <div key={section.title} className="flex w-full flex-col gap-5">
-            <div className="flex items-center justify-between gap-4">
-              <h2 className="mb-4 text-lg font-bold sm:text-xl md:text-2xl">
-                {section.title}
-              </h2>
+            <div className="flex flex-col items-center justify-center">
+              <div className="mb-4 h-10 w-px rounded-full bg-black"></div>
 
-              <Link
-                href={section.link}
-                className="shrink-0 text-sm font-bold text-[#d22c4e] transition-opacity duration-200 hover:opacity-70"
-              >
-                مشاهده همه
-              </Link>
+              <h2 className="text-2xl font-bold">{section.title}</h2>
             </div>
 
             <div className="relative w-full">
@@ -119,11 +112,11 @@ export default function ServiceShowcase() {
                 }}
                 className="w-full"
               >
-                <CarouselContent className="-ml-3">
+                <CarouselContent className="-ml-3   ">
                   {sectionProducts.map((product) => (
                     <CarouselItem
                       key={product.id}
-                      className="basis-1/2 pl-3 md:basis-1/3 lg:basis-1/4"
+                      className="basis-1/2 pl-1/2 md:basis-1/3 lg:basis-1/4 "
                     >
                       <ProductCard product={product} />
                     </CarouselItem>
@@ -153,7 +146,7 @@ export default function ServiceShowcase() {
                   width={1200}
                   height={300}
                   sizes="(max-width: 768px) 100vw, 1200px"
-                  className="mt-10 h-auto w-full object-cover "
+                  className="mt-10 h-auto w-full object-cover"
                 />
               </Link>
             )}
@@ -169,7 +162,7 @@ export default function ServiceShowcase() {
                   width={1200}
                   height={300}
                   sizes="(max-width: 768px) 100vw, 1200px"
-                  className="mt-10 h-auto w-full object-cover "
+                  className="mt-10 h-auto w-full object-cover"
                 />
               </Link>
             )}
@@ -179,3 +172,10 @@ export default function ServiceShowcase() {
     </section>
   );
 }
+
+{/* <Link
+  href={section.link}
+  className="shrink-0 text-sm font-bold text-[#d22c4e] transition-opacity duration-200 hover:opacity-70"
+>
+  مشاهده همه
+</Link>; */}

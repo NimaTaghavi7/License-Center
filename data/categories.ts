@@ -93,9 +93,9 @@ export const categories: Category[] = [
     kind: "request",
   },
   {
-  id: "utility",
-  name: "سرویس های کاربردی و ویژه",
-  slug: "utility",
+  id: "offers",
+  name: "پیشنهاد شگفت انگیز",
+  slug: "offers",
   image: "/image-service13.webp",
   kind: "category",
   showInCategoryList: false,

@@ -3,10 +3,10 @@ import Image from "next/image";
 
 function Footer() {
   return (
-    <footer dir="rtl" className="w-full text-white">
+    <footer dir="rtl" className="w-full text-white mt-30">
       <nav className="w-full bg-[#171723]">
         <div className="mx-auto flex min-h-12 w-full max-w-6xl items-center justify-center px-4 sm:px-6 lg:px-8">
-          <ul className="flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
+          <ul className="flex flex-wrap items-center justify-center gap-x-15 gap-y-3">
             <li>
               <Link
                 href="/"
