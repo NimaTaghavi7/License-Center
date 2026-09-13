@@ -29,9 +29,9 @@ export default function Products() {
             className="group relative flex min-h-70 flex-col items-center rounded-xl bg-white p-3 sm:min-h-75 sm:p-4"
           >
             {product.discount !== undefined && (
-              <span className="absolute right-3 top-4 z-10 rounded-full bg-[#d22c4e] px-2 py-1 text-sm text-white sm:right-6 sm:top-5 lg:right-10 lg:top-7">
-                {product.discount}%
-              </span>
+              <span className="absolute right-4 top-8 z-10 rounded-full bg-[#d22c4e] px-1 py-0.5 text-sm text-white  sm:top-10 md:px-2 md:right-21 md:top-7 lg:px-2 lg:right-7 lg:top-13 xl:px-3 xl:right-7 xl:top-9">
+          تخفیف
+        </span>
             )}
 
             <div className="relative h-44 w-full sm:h-52 lg:h-64">

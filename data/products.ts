@@ -130,9 +130,9 @@ export const products: Product[] = [
     slug: "chatgpt-plus",
     image: "/image-products1.webp",
     hoverImage: "/image-1.webp",
-    oldPrice: 209000,
+    // oldPrice: 209000,
     price: 199000,
-    discount: 5,
+    // discount: 5,
     categoryIds: ["education"],
   },
   {
@@ -151,10 +151,10 @@ export const products: Product[] = [
     name: "Canva Pro",
     slug: "canva-pro",
     image: "/image-products3.webp",
-    hoverImage: "/image-3.webp",
+    hoverImage: "/image-products3h.webp",
     oldPrice: 300000,
     price: 250000,
-    discount: 17,
+    
     categoryIds: ["design"],
   },
   {
@@ -165,7 +165,7 @@ export const products: Product[] = [
     hoverImage: "/image-4.webp",
     oldPrice: 400000,
     price: 350000,
-    discount: 12,
+    
     categoryIds: ["cloud"],
   },
   {

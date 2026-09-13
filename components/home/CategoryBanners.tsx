@@ -30,7 +30,7 @@ export default function Category() {
       <div className="grid w-full max-w-6xl grid-cols-2 gap-3 sm:gap-4">
         {categoryCards.map((item) => {
           const category = categories.find(
-            (category) => category.id === item.categoryId
+            (category) => category.id === item.categoryId,
           );
 
           if (!category) return null;
@@ -39,14 +39,14 @@ export default function Category() {
             <Link
               key={category.id}
               href={`/categories/${category.slug}`}
-              className="group relative aspect-2/1 overflow-hidden rounded-xl bg-white transition duration-300 hover:-translate-y-1"
+              className="group relative aspect-2/1 overflow-hidden rounded-xl bg-white "
             >
               <Image
                 src={item.image}
                 alt={category.name}
                 fill
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 600px"
-                className="object-cover transition duration-500 group-hover:scale-105"
+                className="object-cover "
               />
             </Link>
           );

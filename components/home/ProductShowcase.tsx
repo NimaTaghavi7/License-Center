@@ -14,24 +14,29 @@ import {
 import { products } from "@/data/products";
 import { showcaseSections } from "@/data/home";
 
-function ProductCard({
-  product,
-}: {
-  product: (typeof products)[number];
-}) {
+function ProductCard({ product }: { product: (typeof products)[number] }) {
   return (
     <Link
       href={`/products/${product.slug}`}
       draggable={false}
-      className="group relative flex min-h-72 w-full flex-col items-center overflow-hidden rounded-2xl border border-gray-200/80 bg-white p-3.5 shadow-[0_2px_10px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1 hover:border-gray-300 hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] sm:p-4"
+      className="group relative flex min-h-70 w-full flex-col items-center overflow-hidden rounded-xl bg-white p-3 transition-all duration-300 sm:min-h-75 sm:p-4"
     >
       {product.discount !== undefined && (
-        <span className="absolute right-3 top-3 z-10 rounded-full bg-[#d22c4e] px-2.5 py-1 text-[11px] font-bold text-white shadow-sm">
-          {product.discount}%
-        </span>
+        <>
+          <span className="absolute right-5 top-8.5 z-10 rounded-full bg-[#d22c4e] px-1.5 py-0.5 text-sm text-white  sm:top-10 md:px-2 md:right-6 md:top-7 lg:px-2 lg:right-7 lg:top-13 xl:px-3 xl:right-7 xl:top-10">
+            تخفیف
+          </span>
+
+          <button
+            type="button"
+            className="absolute left-3 top-4 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-[#d22c4e] text-lg font-bold leading-none text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:left-6 sm:top-5 lg:left-7 lg:top-10"
+          >
+            +
+          </button>
+        </>
       )}
 
-      <div className="relative h-36 w-full sm:h-40 md:h-44">
+      <div className="relative h-44 w-full sm:h-52 lg:h-64">
         <Image
           src={product.image}
           alt={product.name}
@@ -53,22 +58,22 @@ function ProductCard({
         )}
       </div>
 
-      <div className="mt-2 flex w-full flex-1 flex-col">
-        <h3 className="line-clamp-2 min-h-12 text-center text-sm font-bold leading-6 text-gray-800 transition-colors duration-300 group-hover:text-[#d22c4e]">
+      <div className="mt-3 flex w-full flex-1 flex-col">
+        <h3 className="line-clamp-2 min-h-12 text-center text-sm font-bold leading-6 text-black transition-colors duration-300 group-hover:text-[#d22c4e]">
           {product.name}
         </h3>
 
-        <div className="mt-auto border-t border-gray-100 pt-3 text-center">
+        <div className="mt-3 flex items-center justify-center gap-2 whitespace-nowrap">
           {product.oldPrice !== undefined && (
-            <p className="text-xs text-gray-400 line-through">
+            <span className="text-sm text-gray-400 line-through">
               {product.oldPrice.toLocaleString("fa-IR")} تومان
-            </p>
+            </span>
           )}
 
           {product.price !== undefined && (
-            <p className="mt-1 text-lg font-extrabold tracking-tight text-gray-900">
+            <span className="text-lg font-bold text-black">
               {product.price.toLocaleString("fa-IR")} تومان
-            </p>
+            </span>
           )}
         </div>
       </div>
@@ -88,10 +93,7 @@ export default function ServiceShowcase() {
           .filter((product) => product !== undefined);
 
         return (
-          <div
-            key={section.title}
-            className="flex w-full flex-col gap-5"
-          >
+          <div key={section.title} className="flex w-full flex-col gap-5">
             <div className="flex items-center justify-between gap-4">
               <h2 className="mb-4 text-lg font-bold sm:text-xl md:text-2xl">
                 {section.title}
@@ -151,7 +153,7 @@ export default function ServiceShowcase() {
                   width={1200}
                   height={300}
                   sizes="(max-width: 768px) 100vw, 1200px"
-                  className="mt-10 h-auto w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  className="mt-10 h-auto w-full object-cover "
                 />
               </Link>
             )}
@@ -167,7 +169,7 @@ export default function ServiceShowcase() {
                   width={1200}
                   height={300}
                   sizes="(max-width: 768px) 100vw, 1200px"
-                  className="mt-10 h-auto w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  className="mt-10 h-auto w-full object-cover "
                 />
               </Link>
             )}
